@@ -1,0 +1,71 @@
+</div>
+
+<div id="footerWrapper">
+	
+	<div id="footer">
+	
+		<div class="one_quarter">
+			<h6>Getting Started</h6>
+			
+			<ul>
+				<li><a href="{{ variables:download_link }}" onClick="recordOutboundLink(this, 'Downloads', '{{ variables:current_version }}');return false;">Download Fuel {{ variables:current_version }}</a></li>
+				<li><a href="http://docs.fuelphp.com/">Documentation</a></li>
+				<li><a href="/discover/screencasts">Screencasts</a></li>
+				<li><a href="/forums">Forums</a></li>
+			</ul>
+		</div>
+		
+		<div class="one_quarter">
+			<h6>About</h6>
+			
+			<ul>
+				<li><a href="/about">The Team</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+		</div>
+		
+		<div class="one_quarter">
+			<h6>Fuel Haiku</h6>
+			<p>
+			Simple, Powerful<br />
+			Write web applications fast<br />
+			Happiness ensues
+			</p>
+		</div>
+		
+		<div class="one_quarter_last">
+			<a href="http://happyninjas.com/" target="_blank" class="tooltip-s" title="<p>Who are The HappyNinjas?</p><p>A super secret group of elite developers, more soon...</p>">
+				<div id="ninjas">{{ theme:image file="hn_logo.png" }}</div>
+			</a>
+		</div>
+		
+	</div>
+
+</div>
+
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+<script type="text/javascript" src="http://api.twitter.com/1/statuses/user_timeline/fuelphp.json?callback=twitterCallback2&amp;count=1&amp;include_rts=true"></script>
+
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load('jquery', '1.4.2');</script>
+
+{{ theme:js file="cufon.js" }}
+{{ theme:js file="bebas.font.js" }}
+{{ theme:js file="ui-core.js" }}
+{{ theme:js file="validate.js" }}
+{{ theme:js file="localscroll.js" }}
+{{ theme:js file="scrollto.js" }}
+{{ theme:js file="easing.js" }}
+{{ theme:js file="colorbox.js" }}
+{{ theme:js file="tipsy.js" }}
+{{ theme:js file="global.js" }}
+
+<script type="text/javascript">Cufon.now();</script>
+<script type="text/javascript">
+  function recordOutboundLink(link, category, action) {
+    _gat._getTrackerByName()._trackEvent(category, action);
+    setTimeout('document.location = "' + link.href + '"', 100);
+  }
+</script>
+</body>
+</html>

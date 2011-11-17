@@ -1,0 +1,60 @@
+PYROCMS FORUMS MODULE
+
+*VERSION 1.0.0 TO 1.0.1
+
+Fixed tag parsing issue when trying to edit/preview posts where there are '{' in 
+the content.
+
+*VERSION 1.0.1 TO 1.0.2
+-Fixed auto url creation issue.  They should of been converted to bbcode.
+-Fixed Undefined Variable: unread, message.
+
+*VERSION 1.0.2 TO 1.0.3
+-Fixed sql injection/xss exploit issues in search
+
+*VERSION 1.0.3 TO 1.0.4
+-Fixed edit and delete bugs where any logged in user could edit or delete any
+ post
+
+*VERSION 1.0.4 TO 1.0.5
+-Tags are now escaped in search results
+-Improved Search Validation Rules
+-Added new 'forum_entities' helper that handles the converting of characters to
+ entities.  No more str_replace all over the place.
+-Overal fixed htmlentities wierdness
+-Now using format_date and date_format settings from pyrocms settings.  Left forum
+ setting in place for backwards compatibility.  The date_format setting will be 
+ used if exists.
+-Fixed some spacing issues with some labels
+-Admin Interface Layout changes
+
+*VERSION 1.0.5 TO 1.0.6
+-Fixed nasty search bug causing eval() errors
+
+*VERSION 1.0.6 TO 1.1.0
+-Added ability to move posts from one forum to another
+-Added ability to mark a topic as unread
+-Added forum moderation functionality
+-Added ability for private forums
+-Moved a lot of logic out of some views
+
+*VERSION 1.1.0 TO 1.1.1
+-Fixed undefined variable: post error line 198
+
+*VERSION 1.1.1 TO 1.1.2
+-Added the ability to close a forum
+-when creating a new forum,  the category now defaults to the correct value.
+-reply count is now correct after moving a topic from one forum to another
+-styled the buttons in the admin to utilize the newish button styles.
+
+*VERSION 1.1.2 TO 1.1.3
+-Fixed bug where topics appear to be locked when they really are not
+
+*VERSION 1.1.3 TO 1.1.4
+-Added dbprefix to upgrade and installer logic to make compatible with PyroCMS 1.3
+
+*VERSION 1.1.4 TO 1.1.5
+-removed left over settings query
+
+*VERSION 1.1.5 TO 1.1.6
+-fixed edit reply errors

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<!-- saved from url=(0014)about:internet -->
+
+<!-- Begin head -->
+<head profile="http://gmpg.org/xfn/11">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="author" content="iKreativ.com" />
+<meta name="copyright" content="iKreativ.com" />
+<meta name="robots" content="index, follow" />
+<meta name="distribution" content="global" />
+<meta name="resource-type" content="document" />
+<meta name="language" content="en" />
+
+<link rel="alternate" type="application/rss+xml" title="Fuel Blog" href="http://fuelphp.com/blog/rss/all.rss" /> 
+<link rel="shortcut icon" href="{{ url:base }}addons/themes/fuel/img/favicon.png" type="image/x-icon" />
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
+
+{{ theme:css file="style.css" }}
+
+<!-- Place CSS bug fixes for IE 6 in this comment -->
+
+<title>{{ settings:site_name }}&nbsp;&rsaquo;&nbsp;{{ template:title }}</title>
+
+</head>
+
+<!-- Begin body -->
+<body id="top" class="{{ if url:current == url:base }}home{{ /if }}">
+
+{{ session:messages success="success-box" notice="notice-box" error="error-box" }}
+
+{{ integration:analytics }}
+
+<div id="headerWrapper">
+	<div id="header">
+
+		<div id="logo">
+			<h1><a href="{{ url:site }}" title="Home">{{ theme:image file="logo.png" }}</a></h1>
+		</div>
+
+		<ul id="nav">
+			{{ navigation:links group="header" }}
+		{{ user:logged_in }}
+			<li><a href="/users/logout" target="" class="logout">LOGOUT</a></li>
+		{{ /user:logged_in }}
+		{{ user:not_logged_in }}
+			<li><a href="/users/login" target="" class="login">LOGIN</a></li>
+		{{ /user:not_logged_in }}
+		</ul>
+		
+		{{ if url:current == url:base }}
+			<div class="splitter"></div>
+
+			<div id="intro">
+	
+				<div id="about">
+					<h1>FuelPHP is a simple, flexible, community driven PHP 5.3 web framework based on the best ideas of other frameworks with a fresh start.</h1>
+				</div>
+	
+				<ul id="calltos">
+					<li id="download">
+						<a href="{{ variables:download_link }}"  onClick="recordOutboundLink(this, 'Downloads', '{{ variables:current_version }}');return false;">
+							<span class="link">Download <span class="version">{{ variables:current_version }}</span></span>
+						</a>
+							<span class="desc">Grab the latest and greatest version of FuelPHP.</span>
+					</li>
+		
+					<li id="discover">
+						<a href="/discover" title="Discover">
+							<span class="link">Discover</span>
+						</a> 
+						<span class="desc">Learn more about FuelPHP with great docs.</span>
+					</li>
+		
+					<li id="contribute">
+						<a href="http://github.com/fuel" title="Contribute">
+							<span class="link">Contribute</span>
+						</a> 
+							<span class="desc">Be part of it. Fork it, tweak it, push it!</span>
+					</li>
+				</ul>
+
+			</div>
+		{{ /if }}
+
+	</div>
+	
+	<div id="midbar">
+
+		<div id="twitter">
+			{{ theme:image file="twitter_bird.png" }}
+			<ul id="twitter_update_list">
+				<li>&nbsp;</li>
+			</ul>
+		</div>	
+	</div>
+	
+</div>
+
+<div id="contentWrapper">

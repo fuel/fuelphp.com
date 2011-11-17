@@ -1,0 +1,331 @@
+/**
+ * Global forum table element styles
+ */
+.forum-table {
+    width: 100%;
+    margin-bottom: 5px;
+}
+.forum-table th, .forum-table td {
+    text-align: left;
+    vertical-align: middle;
+}
+.forum-table td {
+    padding: 6px 0;
+    border-bottom: 1px solid #c9c9c9;
+}
+.forum-table th.header, .form-table th.header {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: inherit;
+    background-color: #e1e1e1;
+    -moz-border-radius: 5px 5px 0 0;
+    padding: 3px 5px;
+    text-align: left;
+}
+.forum-icon img {
+    border: none;
+    margin: 0;
+}
+th.forum-icon {
+    width: 20px;
+}
+td.forum-icon, td.forum-name {
+    vertical-align: top;
+    padding-left: 5px;
+}
+.forum-table .forum-topic, .forum-table .forum-replies {
+    text-align: center;
+    width: 75px;
+}
+td.forum-name, th.forum-name {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.forum-table th {
+    background-color: #e1e1e1;
+    border-bottom: 1px solid #c9c9c9;
+    padding: 5px 0;
+    font-weight: bold;
+}
+th.forum-info, td.forum-info {
+    width: 160px;
+    padding-right: 5px;
+}
+.forum-name div {
+    padding-bottom: 7px;
+}
+.forum-name div.title {
+    font-weight: bold;
+}
+.forum-info div {
+    padding: 0;
+    font-size: smaller;
+}
+/**
+ * anchor button styles
+ *
+ * individual hook classes are available to individually style a specific button
+ * markall, newtopic, newreply, lock, unlock, stick, unstick
+ * quote, edit, delete, permalink
+ */
+
+/* container that holds the new topic and reply buttons */
+.forum-buttons {
+    margin-bottom: 5px;
+}
+/* global forum anchor button style */
+a.button {
+    -moz-border-radius: 5px;
+    background-color: #e1e1e1;
+    border: 1px solid #c9c9c9;
+    padding: 1px 5px;
+    float: right;
+    margin-right: 5px;
+    text-align: center;
+}
+a.newtopic, a.newreply {
+    float: left;
+}
+/**
+ * Topic Table styles - the table that displays the topic thread
+ */
+.topic-table {
+    
+}
+.topic-table td.author {
+    padding-left: 5px;
+}
+.topic-table td.authorinfo {
+    padding-left: 5px;
+    vertical-align: top;
+    border-right: 1px solid #e9e9e9;
+    width: 200px;
+}
+.topic-table td.authorinfo div {
+    font-size: 11px;
+    padding-bottom: 3px;
+}
+.topic-table td.authorinfo img {
+    margin: 0;
+}
+.topic-table td.body {
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: top;
+}
+.topic-table .postreport {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: right;
+}
+.topic-table .postlinks td {
+    background-color: #e9e9e9;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.topic-table .align-right {
+    text-align: right;
+}
+.topic-table blockquote, .preview blockquote {
+    margin: 8px;
+    border: 1px solid #c9c9c9;
+    padding: 8px;
+}
+.topic-table blockquote p, .preview blockquote p {
+    padding: 0;
+    font-style: italic;
+    font-size: 11px;
+}
+.topic-table blockquote strong, .preview blockquote strong {
+    font-weight: bold;
+}
+.sticky {
+    float: left;
+}
+/** ------------------------------- **/
+
+/** Post preview styles **/
+.preview {
+    padding: 8px;
+    border: 1px solid #e9e9e9;
+    margin-bottom: 5px;
+}
+.preview h4, .preview h5 {
+    padding: 0 7px 0 7px;
+    margin-bottom: 3px;
+}
+.preview h4 {
+    text-align: right;
+}
+
+/**
+ * forum search
+ */
+#forum-search {
+    float: right;
+    margin-bottom: 20px;
+}
+#forum-search form >* {
+    float: left;
+    margin-left: 5px;
+}
+#forum-search form a {
+    display: block;
+}
+#forum-search input[type="submit"] {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.forum-buttons #forum-search form a {
+    border: none;
+    background-color: transparent;
+    width: auto;
+}
+fieldset#keywords {
+    width: 58%;
+    padding: 10px 0;
+    float: left;
+    border: 1px solid #e9e9e9;
+}
+fieldset#keywords input[type="text"] {
+    width: 96%;
+    margin: 0 2%;
+    padding-left: 0;
+    padding-right: 0;
+}
+fieldset#keywords select {
+    margin: 4px 2% 0 2%;
+}
+fieldset#forum-list {
+    border: 1px solid #e9e9e9;
+    margin-left: 10px;
+    float: left;
+    padding: 10px;
+}
+fieldset#sort-options {
+    float: left;
+    clear: left;
+    padding: 8px;
+    border: 1px solid #e9e9e9;
+    margin-top: 5px;
+}
+fieldset#sort-options >* {
+    float: left;
+    margin-right: 3px;
+}
+#advanced-search p.submit {
+    clear: left;
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+}
+p.submit input {
+    display: block;
+    margin: 0 auto;
+    float: none;
+}
+
+/**
+ * Pagination
+ */
+.pagination {
+    padding: 0;
+    float: left;
+    margin-bottom: 5px;
+}
+.pagination span {
+    padding: 5px 8px;
+    margin-right: 3px;
+    border: 1px solid #c9c9c9;
+    display: block;
+    float: left;
+}
+
+/* Form Table styles - when creating new topics */
+table.form-table {
+    width: 100%;
+}
+.form-table th.header {
+    boder-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.form-table .title >*, .form-table .formatting >* {
+    padding: 15px 5px;
+    vertical-align: middle;
+}
+.form-table .formatting {
+    text-align: center;
+}
+.form-table tbody th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: right;
+    font-weight: bold;
+}
+.form-table td div {
+    padding: 0;
+}
+.form-table #forum_input, .form-table #title {
+    width: 100%;
+}
+form.forum {
+    width: 100%;
+}
+.form-table .forum_buttons a {
+    padding: 2px 12px;
+    color: #222222;
+    float: left;
+    border-right: 1px solid #c9c9c9;
+    border-left: 0.5px solid #ffffff;
+}
+.form-table .forum_buttons #email {
+    border-right: none;
+}
+.form-table .forum_buttons #b {
+    border-left: none;
+}
+.form-table .forum_buttons {
+    float: left;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    background-color: #e9e9e9;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.form-table .message >* {
+    vertical-align: top;
+    padding: 15px 5px;
+}
+.form-table .options >* {
+    vertical-align: middle;
+    padding: 15px 5px;
+}
+.form-table .options input {
+    position: relative;
+    top: 3px;
+}
+
+/**
+ * Helper/Generic styles
+ */
+
+/** holds the anchor buttons for markall and new topics **/
+#post-actions {
+    float: left;
+}
+.border-left {
+    border-left: 1px solid #c9c9c9;
+}
+.border-right {
+    border-right: 1px solid #c9c9c9;
+}
+.border-top {
+    border-top: 1px solid #c9c9c9;
+}
+.border-bottom {
+    border-bottom: 1px solid #c9c9c9;
+}
+br.clear-both {
+    clear: both;
+}

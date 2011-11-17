@@ -1,0 +1,10 @@
+html { margin: 32px 0 0 0; }
+body { background-color: #f2f2f2; background-position: 0 32px; margin: 0 auto; overflow-x: hidden; }
+#logo { margin: 0 500px 0 0; float: left; }
+#slogans { width: 1000px; margin: 50px 0 0 0; float: left; }
+ul#nav ul li ul { width: 125px; background-color: #f8f8f8; display: none; position: absolute; top: -1px; margin: 0 0 0 15px; padding: 0 0 3px 0; z-index: 100; box-shadow: 0px 2px 2px #959595; -moz-box-shadow: 0px 2px 2px #959595; -webkit-box-shadow: 0px 2px 2px #959595; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }
+form#searchform { margin: 4px 0 0 -25px; float: right; }
+#show { margin: 7px 15px 0 0; float: right; }
+#close { margin: 12px 0 0 -40px; float: left; }
+.post, .page { border: 1px solid #dddddd;  }
+#slider { max-width: 945px; }
