@@ -45,8 +45,6 @@ define('ENVIRONMENT', (isset($_SERVER['PYRO_ENV']) ? $_SERVER['PYRO_ENV'] : PYRO
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
-			error_reporting(E_ALL);
-			ini_set('display_errors', 1);
 
 	switch (ENVIRONMENT)
 	{
@@ -63,6 +61,8 @@ define('ENVIRONMENT', (isset($_SERVER['PYRO_ENV']) ? $_SERVER['PYRO_ENV'] : PYRO
 		default:
 			exit('The environment is not set correctly. ENVIRONMENT = '.ENVIRONMENT.'.');
 	}
+			error_reporting(E_ALL);
+			ini_set('display_errors', 1);
 
 /*
 |---------------------------------------------------------------
