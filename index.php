@@ -61,8 +61,6 @@ define('ENVIRONMENT', (isset($_SERVER['PYRO_ENV']) ? $_SERVER['PYRO_ENV'] : PYRO
 		default:
 			exit('The environment is not set correctly. ENVIRONMENT = '.ENVIRONMENT.'.');
 	}
-			error_reporting(E_ALL);
-			ini_set('display_errors', 1);
 
 /*
 |---------------------------------------------------------------
