@@ -7,7 +7,7 @@ Cufon.replace('#calltos #contribute .link', { textShadow: '0px 3px 0px #7431d6' 
 Cufon.replace('#footer h6', { textShadow: 'none' });
 
 $(document).ready(function(){
-	
+
 // Fadein
 $('body').fadeIn(1000);
 
@@ -23,13 +23,14 @@ $(this).stop().animate({"opacity": "1"}, "slow");
 // Notices
 $(function () {
 	var alert = $('.success-box, .notice-box, .error-box');
-	if (alert.length > 0) {
-	alert.show().animate({height: alert.outerHeight()}, 200);
+	if (alert.length > 0)
+	{
+		alert.show()
 
-	window.setTimeout(function() {
-	  alert.slideUp();
-	}, 3000);
-}
+		window.setTimeout(function() {
+		  alert.slideUp();
+		}, 3000);
+	}
 });
 
 // Tooltip
@@ -117,7 +118,7 @@ var initialValue = jQueryt.css(prop);
 /* fx */
 var go = {}; go[prop] = parseInt(jQueryp.amount) + parseInt(initialValue);
 var bk = {}; bk[prop] = initialValue;
-		
+
 //Proceed to nudge on hover
 jQueryt.hover(function() {
 jQueryt.stop().animate(go, jQueryp.duration, '', jQueryp.toCallback);
