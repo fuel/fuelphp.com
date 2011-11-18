@@ -151,7 +151,7 @@ form#login ul li.form_buttons input, form#register ul li.form_buttons input, for
 #footer { width: 1000px; margin: 0 auto; }
 #footer h6 { text-transform: uppercase; color: #979797; text-shadow: none; }
 #footer p { text-transform: uppercase; font-size: 11px; color: #979797; text-shadow: none; }
-#footer #ninjas { margin: 10px 0 0 0; float: left; }
+#footer #pagoda { margin: 10px 0 0 0; float: left; }
 #footer ul { margin: 0; padding: 0; }
 #footer ul li a { font-size: 11px; text-transform: uppercase; color: #979797; text-shadow: none; }
 #footer ul li a:hover { color: #c141ff; }
