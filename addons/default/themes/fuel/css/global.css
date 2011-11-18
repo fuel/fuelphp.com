@@ -74,7 +74,7 @@ p.preLoader { font-size: 11px; text-shadow: 1px 1px 0px #ffffff; }
 .blog_post { width: 675px; margin: 0 0 30px 0; padding: 0 0 15px 0; border-bottom: 1px solid #e2e2e2; float: left;  }
 .blog_post:nth-last-child(1) { border: none; }
 
-.news_article { padding: 0; margin: 0 0 15px 0; float: left; } 
+.news_article { padding: 0; margin: 0 0 15px 0; float: left; }
 p.post_date { width: 665px; background-color: #e8e8e8; font-family: "Lucida Sans Unicode", "Lucida Grande", Helvetica, Arial, sans-serif; font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; padding: 7px 0 6px 10px; margin: 0 0 25px 0; float: left; border: 1px solid #fbfbfb; border-radius: 3px; -o-border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 
 /* Page ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -124,7 +124,7 @@ ul.galleries_list li a img { width: 100px; height: 100px; }
 form#register { padding: 0 0 325px 0; }
 form#login ul li label, form#register ul li label { width: 650px; }
 form#login ul li, form#register ul li { list-style: none; }
-form#login ul li input[type=text], form#register ul li input[type=text], form#login ul li input[type=password], form#register ul li input[type=password] { width: 300px; background-color: #e8e8e8; border: 1px solid #fbfbfb; border-radius: 3px; -o-border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; 
+form#login ul li input[type=text], form#register ul li input[type=text], form#login ul li input[type=password], form#register ul li input[type=password] { width: 300px; background-color: #e8e8e8; border: 1px solid #fbfbfb; border-radius: 3px; -o-border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;
 padding: 5px 15px 5px 15px; font-size: 13px; font-weight: bold; color: #858585; letter-spacing: 0.5px; text-shadow: 1px 1px 0px #fbfbfb; margin: 0 350px 0 0; }
 form#login ul li.form_buttons input { background: none; border: none; font-size: 14px; font-weight: normal; cursor: pointer; padding: 0; }
 
@@ -252,7 +252,7 @@ blockquote p { margin: 0; }
 #cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
 #cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
 
-/* 
+/*
     Example user style
     The following rules are ordered and tabbed in a way that represents the
     order/nesting of the generated HTML, so that the structure easier to understand.
@@ -286,5 +286,5 @@ blockquote p { margin: 0; }
 
 /* Disqus Comments Style */
 
-#disqus_thread {clear: both;}
+#disqus_thread {clear: both; width: 675px;}
 #dsq-global-toolbar * {text-shadow: none;}
