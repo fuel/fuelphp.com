@@ -1,7 +1,5 @@
 <?php
 
-exit("We've run into problems with our hosting whilst trying to do a simple database upgrade, so we're waiting for them to fix it. Please bare with us. The <a href='http://docs.fuelphp.com/'>documentation</a> is still available in the meantime.")
-
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
