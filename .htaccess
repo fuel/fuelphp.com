@@ -27,6 +27,8 @@
 	#RewriteCond %{THE_REQUEST}				^[^/]*/index\.php [NC]
 	#RewriteRule ^index\.php(.*)$			$1 [R=301,NS,L]
 
+	RewriteRule ^docs(.*)$ http://docs.fuelphp.com$1 [R=301,L]
+
 	# Keep people out of codeigniter directory and Git/Mercurial data
 	RedirectMatch 403 ^/(system\/cms\/cache|system\/codeigniter|\.git|\.hg).*$
 
