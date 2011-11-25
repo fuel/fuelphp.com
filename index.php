@@ -1,16 +1,6 @@
 <?php
-/**
- * @author 		PyroCMS Development Team
- * @package 	PyroCMS
- * @subpackage 	Controllers
- */
 
-# If you have already installed then delete this
-if ( ! file_exists('system/cms/config/database.php'))
-{
-	header('Location: '.rtrim($_SERVER['REQUEST_URI'], '/').'/installer/');
-	exit;
-}
+exit("We've run into problems with our hosting whilst trying to do a simple database upgrade, so we're waiting for them to fix it. Please bare with us. The <a href='http://docs.fuelphp.com/'>documentation</a> is still available in the meantime.")
 
 /*
  *---------------------------------------------------------------
