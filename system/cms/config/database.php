@@ -38,7 +38,7 @@ $db[PYRO_DEVELOPMENT] = array(
 	'password'		=> 	'password',
 	'database'		=> 	'pyrocms',
 	'dbdriver' 		=> 	'mysqli',
-	'port' 	 		=>	3306,
+	'port' 	 		=>	3306,2
 	'active_r' 		=>	TRUE,
 	'pconnect' 		=>	FALSE,
 	'db_debug' 		=>	TRUE,
@@ -52,11 +52,11 @@ $db[PYRO_DEVELOPMENT] = array(
 
 // Production
 $db[PYRO_PRODUCTION] = array(
-	'hostname'		=> 	@$_SERVER['DB1_HOST'],
-	'username'		=> 	@$_SERVER['DB1_USER'],
-	'password'		=> 	@$_SERVER['DB1_PASS'],
-	'database'		=> 	@$_SERVER['DB1_NAME'],
-	'port' 	 		=>	@$_SERVER['DB1_PORT'],
+	'hostname'		=> 	@$_SERVER['DB2_HOST'],
+	'username'		=> 	@$_SERVER['DB2_USER'],
+	'password'		=> 	@$_SERVER['DB2_PASS'],
+	'database'		=> 	@$_SERVER['DB2_NAME'],
+	'port' 	 		=>	@$_SERVER['DB2_PORT'],
 	'dbdriver' 		=> 	'mysqli',
 	'active_r' 		=>	TRUE,
 	'pconnect' 		=>	FALSE,
