@@ -66,10 +66,9 @@ class Topics extends Public_Controller {
 		
 		// Set Template Settings
 		$this->template
-			->enable_parser_body(FALSE)
-			->append_metadata( theme_css('forums.css') )
-			->append_metadata( js('jquery/jquery.js') )
-			->append_metadata( js('forums.js', 'forums') )
+			//->enable_parser_body(FALSE)
+			->append_css('module::forums.css')
+			->append_js('module::forums.js')
 			->set_partial('search_form', 'partials/search')
 			->set_breadcrumb(lang('breadcrumb_base_label'), '/')
 			->set_breadcrumb(lang('forums_forum_title'), 'forums');

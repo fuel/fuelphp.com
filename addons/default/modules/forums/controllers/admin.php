@@ -23,6 +23,7 @@
  */
 class Admin extends Admin_Controller {
 
+	protected $section = 'categories';
 	/**
 	 * @access	private
 	 * @var		array	Contains form validation rules.
@@ -80,7 +81,9 @@ class Admin extends Admin_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-
+		if(in_array('list_forums', $this->uri->segment_array()))
+			$this->section = 'list_forums';
+			
 		$this->load->model(array('forums_m',
 								 'forum_categories_m',
 								 'groups/group_m',
@@ -115,7 +118,7 @@ class Admin extends Admin_Controller {
 		
 		$this->template->group_options = $group_options;
 
-		$this->template->append_metadata( js('admin.js', 'forums') )
+		$this->template->append_js('module::admin.js')
 				->set_partial('shortcuts', 'admin/partials/shortcuts');
 	}
 	
@@ -146,6 +149,7 @@ class Admin extends Admin_Controller {
 	 */
 	public function list_forums($cat_id = FALSE)
 	{
+		$this->template->active_section = 'list_forums';
 		$category = $this->forum_categories_m->get($cat_id);
 		
 		empty($category) and redirect('admin/forums');

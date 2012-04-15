@@ -1,8 +1,9 @@
+{{ noparse }}
 <div class="forum-buttons">
 	<?php echo $template['partials']['search_form']; ?>
 	<br class="clear-both" />
 </div>
-
+<?php echo $pagination['links']; ?>
 <table class="forum-table" border="0" cellspacing="0">
 	<thead>
 		<tr>
@@ -29,7 +30,7 @@
 		  <?php foreach($forum->topics as $topic): ?>
 		  <tr>
 			<td class="forum-icon">
-				<?php echo $topic->sticky ? image('pin.png', 'forums') : image($topic->image, 'forums'); ?>
+				<?php echo $topic->sticky ? Asset::img('module::pin.png', 'forums') : Asset::img('module::'.$topic->image); ?>
 			</td>
 			<td class="forum-name">
 				<?php echo $topic->sticky ? '<span class="sticky">' . lang('forums.sticky_label') . '</span>' : ''; ?>
@@ -66,4 +67,4 @@
   <?php endif;?>
 </table>
 <?php echo $pagination['links']; ?>
-
+{{ /noparse }}

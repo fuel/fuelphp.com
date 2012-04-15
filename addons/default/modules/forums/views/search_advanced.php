@@ -1,3 +1,4 @@
+{{ noparse }}
 <h3><?php echo lang('forums.advanced_search_label'); ?></h3>
 <?php if(empty($results)): ?>
 <div id="advanced-search">
@@ -45,7 +46,7 @@
         <?php foreach($results as $topic): ?>
         <tr>
             <td class="forum-icon">
-                    <?php echo image('folder-read.png', 'forums'); ?>
+                    <?php echo Asset::img('module::folder-read.png', ''); ?>
             </td>
             <td class="forum-name">
                 <span class="title"><?php echo anchor('forums/topics/view/'.$topic->id, $topic->title);?></span>
@@ -95,3 +96,4 @@
 </table>
 <?php echo $pagination['links']; ?>
 <?php endif; ?>
+{{ /noparse }}

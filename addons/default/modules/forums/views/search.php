@@ -1,3 +1,4 @@
+{{ noparse }}
 <?php if(!empty($results)): ?>
 <?php echo $pagination['links']; ?>
 <table class="forum-table" border="0" cellspacing="0">
@@ -18,7 +19,7 @@
 		  <?php foreach($results as $topic): ?>
 		  <tr>
 			<td class="forum-icon">
-				<?php echo image('folder-read.png', 'forums'); ?>
+				<?php echo Asset::img('module::folder-read.png', 'read'); ?>
 			</td>
 			<td class="forum-name">
 				<span class="title">
@@ -75,3 +76,4 @@
     <?php echo $template['partials']['search_form']; ?>
     
 <?php endif; ?>
+{{ /noparse }}

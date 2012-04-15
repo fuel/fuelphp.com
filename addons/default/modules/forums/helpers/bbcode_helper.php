@@ -62,7 +62,7 @@ function parse($str, $clear = 0, $parse_smileys = FALSE)
 			$str = str_replace($block, "{block_$block_num}", $str);
 			$block_num++;
 		}
-		$str = parse_smileys($str, image_url("smileys/", 'forums'));
+		$str = parse_smileys($str, preg_replace('/(^.*?src=")(.*?)(".*)/', '\2', Asset::get_filepath_img("smileys/")));
 
 		$block_num = 0;
 		foreach ($code_blocks[0] as $block)

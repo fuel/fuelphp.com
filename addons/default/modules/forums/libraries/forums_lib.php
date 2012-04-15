@@ -30,8 +30,6 @@ class Forums_lib
 	{
 		$this->CI =& get_instance();
 		$this->CI->load->model(array('forum_permissions_m', 'forum_moderators_m'));
-		
-		$this->current_user = $this->CI->current_user;
 	}
 	public function notify_reply($recipients, $reply)
 	{
@@ -41,7 +39,7 @@ class Forums_lib
 		foreach($recipients as $person)
 		{
 			// No need to email the user that entered the reply
-			if ($person->email == $this->current_user->email)
+			if($person->email == $this->CI->current_user->email)
 			{
 				continue;
 			}
@@ -74,7 +72,7 @@ class Forums_lib
 		}
 
 		// If there are recipients
-		if ($recipient_count > 0)
+		if($recipient_count > 0)
 		{
 			$this->CI->db->select('email,id');
 			return $this->CI->db->get($this->CI->ion_auth_model->tables['users'])->result();
@@ -87,13 +85,13 @@ class Forums_lib
 	public function forum_has_unread($forum_id, $topic_count, $read_topics)
 	{
 		//no topics from this forum has never been visited
-		if ( ! array_key_exists($forum_id, $read_topics))
+		if(!array_key_exists($forum_id, $read_topics))
 		{
 			return TRUE;
 		}
 		
 		//user has been visited a topic but have they been to all of them?
-		if (count($read_topics[$forum_id]) != $topic_count)
+		if(count($read_topics[$forum_id]) != $topic_count)
 		{
 			return TRUE;
 		}
@@ -104,114 +102,112 @@ class Forums_lib
 		$groups = $this->CI->forum_permissions_m->get_many_by('forum_id', $forum_id);
 		
 		//if groups is empty this forum is viewable to everyone
-		if (empty($groups))
+		if(empty($groups))
 		{
 			return TRUE;
 		}
 		
 		//since we have groups assigned to this forum id only admins, mods, and
 		//said groups should have access
-		else
+		
+		//we need to check if user is logged in since we are going to be comparing groups
+		if($this->CI->ion_auth->logged_in())
 		{
-			//we need to check if user is logged in since we are going to be comparing groups
-			if ($this->current_user)
+			if($this->CI->ion_auth->is_admin() or $this->_is_moderator($forum_id, $this->CI->current_user->id) or $this->_check_group($forum_id, $this->CI->current_user->group_id))
 			{
-				if ($this->CI->ion_auth->is_admin() or $this->_is_moderator($forum_id, $this->current_user->id) or $this->_check_group($forum_id, $this->current_user->group_id))
-				{
-					return TRUE;
-				}
-				return FALSE;
-			}
-			else
-			{
-				return FALSE;
+				return TRUE;
 			}
 		}
-		
+		return FALSE;
 	}
 	
 	public function can_edit($post)
 	{
 		//if the user is not logged in no edit for you!
-		if ( ! $this->current_user)
+		if(!$this->CI->ion_auth->logged_in())
 		{
 			return FALSE;
 		}
 		
 		//if user is an admin or moderator or the author of original post,  we can edit
-		if ($post->author_id === $this->current_user->id or $this->CI->ion_auth->is_admin() or $this->_is_moderator($post->forum_id, $this->current_user->id))
+		if($post->author_id === $this->CI->current_user->id or $this->CI->ion_auth->is_admin() or $this->_is_moderator($post->forum_id, $this->CI->current_user->id))
 		{
 			return TRUE;
 		}
+		
 		return FALSE;
 	}
 	
 	public function can_delete($post)
 	{
 		//if the user is not logged in no edit for you!
-		if ( ! $this->current_user)
+		if(!$this->CI->ion_auth->logged_in())
 		{
 			return FALSE;
 		}
 		
 		//if user is an admin or moderator or the author of original post,  we can edit
-		if ($post->author_id === $this->current_user->id or $this->CI->ion_auth->is_admin() or $this->_is_moderator($post->forum_id, $this->current_user->id))
+		if($post->author_id === $this->CI->current_user->id or $this->CI->ion_auth->is_admin() or $this->_is_moderator($post->forum_id, $this->CI->current_user->id))
 		{
 			return TRUE;
 		}
+		
 		return FALSE;
 	}
 	
 	public function can_sticky($post)
 	{
-		if ( ! $this->current_user)
+		if(!$this->CI->ion_auth->logged_in())
 		{
 			return FALSE;
 		}
 		
-		if ($this->CI->ion_auth->is_admin() or $this->_is_moderator($post->forum_id, $this->current_user->id))
+		if($this->CI->ion_auth->is_admin() or $this->_is_moderator($post->forum_id, $this->CI->current_user->id))
 		{
 			return TRUE;
 		}
+		
 		return FALSE;
 	}
 	
 	public function can_lock($post)
 	{
-		if ( ! $this->current_user)
+		if(!$this->CI->ion_auth->logged_in())
 		{
 			return FALSE;
 		}
 		
-		if ($this->CI->ion_auth->is_admin() or $this->_is_moderator($post->forum_id, $this->current_user->id))
+		if($this->CI->ion_auth->is_admin() or $this->_is_moderator($post->forum_id, $this->CI->current_user->id))
 		{
 			return TRUE;
 		}
+		
 		return FALSE;
 	}
 	
 	public function can_move($topic)
 	{
-		if ( ! $this->current_user)
+		if(!$this->CI->ion_auth->logged_in())
 		{
 			return FALSE;
 		}
 		
-		if ($this->CI->ion_auth->is_admin() or $this->_is_moderator($topic->forum_id ? $topic->forum_id : $topic, $this->current_user->id))
+		if($this->CI->ion_auth->is_admin() or $this->_is_moderator($topic->forum_id ? $topic->forum_id : $topic, $this->CI->current_user->id))
 		{
 			return TRUE;
 		}
+		
 		return FALSE;
 	}
 	
 	public function can_post($forum_id)
 	{
-		if ( ! $this->current_user)
+		if(!$this->CI->ion_auth->logged_in())
 		{
 			return FALSE;
 		}
 		
-		if ($this->CI->ion_auth->is_admin() or $this->_is_moderator($forum_id, $this->current_user->id))
+		if($this->CI->ion_auth->is_admin() or $this->_is_moderator($forum_id, $this->CI->current_user->id))
 		{
 			return TRUE;
 		}
@@ -221,7 +217,7 @@ class Forums_lib
 	
 	public function is_private($forum_id)
 	{
-		return $this->current_user && $this->_check_group($forum_id, $this->current_user->group_id);
+		return $this->_check_group($forum_id, ($this->CI->current_user ? $this->CI->current_user->group_id : 0));
 	}
 	
 	public function _is_moderator($forum_id, $user_id)

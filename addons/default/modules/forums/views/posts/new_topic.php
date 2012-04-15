@@ -1,3 +1,4 @@
+{{ noparse }}
 <?php if(validation_errors()): ?>
 <div class="errors">
 	<?php echo validation_errors(); ?>
@@ -49,3 +50,4 @@
 	</tbody>
 	<?php echo form_close(); ?>
 </table>
+{{ /noparse }}

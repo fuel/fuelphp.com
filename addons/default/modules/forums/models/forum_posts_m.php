@@ -15,7 +15,7 @@
 /**
  * PyroCMS Forum Posts Model
  *
- * @author		Stephen Cozart <stephen.cozart@gmail.com>
+ * @author		Dan Horrigan <dan@dhorrigan.com>, Stephen Cozart <stephen.cozart@gmail.com>
  * @package		PyroCMS
  * @subpackage		Forums
  * @category		Model
@@ -232,14 +232,16 @@ class Forum_posts_m extends MY_Model
 	{
 		$u_table = $this->ion_auth_model->tables['users'];
 		$m_table = $this->ion_auth_model->tables['meta'];
+		$g_table = $this->ion_auth_model->tables['groups'];
 		$m_join = $this->ion_auth_model->meta_join;
 
 		return $this->db
 			->from($u_table .' u')
-			->select('u.id, u.email, u.created_on, u.last_login, m.first_name, m.last_name')
+			->select('u.id, u.email, u.created_on, u.last_login, g.name `group`, m.first_name, m.last_name')
 			->select('CONCAT(m.first_name, " ", m.last_name) as full_name', FALSE)
 			->where('u.id', $author_id)
 			->join($m_table .' m', 'u.id = m.'.$m_join, 'left')
+			->join($g_table .' g', 'g.id = u.group_id', 'left')
 			->limit(1)
 			->get()
 			->row();
@@ -454,7 +456,7 @@ class Forum_posts_m extends MY_Model
 		}
 
 		return $this->db
-			->select("*, MATCH(title,content) AGAINST(".$this->db->escape($terms)." IN BOOLEAN MODE) as relevance", false)
+			->select("*, MATCH(title,content) AGAINST(".$this->db->escape($terms)." IN BOOLEAN MODE) as relevance",false)
 			->where("MATCH(title,content) AGAINST(".$this->db->escape($terms)." IN BOOLEAN MODE)")
 			->having('relevance > 0.2')
 			->order_by('relevance', 'DESC')
@@ -558,7 +560,8 @@ class Forum_posts_m extends MY_Model
 			//we don't want to run the query without these two items
 			if ($match AND $criteria)
 			{
-				return $this->db->select("*, MATCH($match) AGAINST(".$this->db->escape($against)." IN BOOLEAN MODE) as relevance", false)
+				
+				return $this->db->select("*, MATCH($match) AGAINST(".$this->db->escape($against)." IN BOOLEAN MODE) as relevance",false)
 						->from($this->_table)
 						->where("MATCH(".$match.") AGAINST(".$this->db->escape($against)." IN BOOLEAN MODE)")
 						->having('relevance > 0.2')

@@ -44,7 +44,7 @@ class Posts extends Public_Controller {
 		parent::__construct();
 
 		// Load dependencies
-		$this->load->models(array('forums_m', 'forum_posts_m', 'forum_subscriptions_m', 'users/users_m'));
+		$this->load->models(array('forums_m', 'forum_posts_m', 'forum_subscriptions_m', 'users/user_m'));
 		$this->load->helper(array('smiley', 'forums', 'gravatar', 'users/user'));
 		$this->load->helper($this->settings->forums_editor); //bbcode or textile
 		$this->load->library('forums_lib');
@@ -66,9 +66,9 @@ class Posts extends Public_Controller {
 
 		// Template settings
 		$this->template
-			->enable_parser_body(FALSE)
-			->append_metadata( theme_css('forums.css') )
-			->append_metadata( js('forums.js', 'forums') )
+			//->enable_parser_body(FALSE)
+			->append_css('module::forums.css')
+			->append_js('module::forums.js')
 			->set_breadcrumb(lang('breadcrumb_base_label'), '/')
 			->set_breadcrumb(lang('forums_forum_title'), 'forums')
 			->set_partial('search_form', 'partials/search');
@@ -152,12 +152,10 @@ class Posts extends Public_Controller {
 	 */
 	public function new_reply($topic_id = FALSE)
 	{
-		(!$topic_id) ? show_404() : '' ;
-		
-		$topic_id = (int) $topic_id;
+		$topic_id = $topic_id ? (int) $topic_id : show_404();
 		
 		// Can't reply if you aren't logged it
-		$this->ion_auth->logged_in() or redirect('users/login');
+		$this->ion_auth->logged_in() or redirect('users/login/'.uri_string());
 
 		// Get the topic and forum info
 		$topic = $this->forum_posts_m->get_topic($topic_id);
@@ -189,7 +187,7 @@ class Posts extends Public_Controller {
 			if ($this->settings->forums_editor == 'bbcode')
 			{
 				$q_date = forum_date($quote->created_on);
-				$q_author = $this->users_m->get(array('id' => $quote->author_id))->full_name;
+				$q_author = $this->user_m->get(array('id' => $quote->author_id))->display_name;
 				$reply->content = '[quote author=' . $q_author . ' date=' . $q_date . ']' . $quote->content . '[/quote]';
 			}
 			elseif ($this->settings->forums_editor == 'textile')

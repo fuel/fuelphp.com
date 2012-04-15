@@ -1,66 +1,99 @@
 /**
  * Global forum table element styles
  */
-.forum-table {
-    width: 100%;
-    margin-bottom: 5px;
+.forum {
+	margin-top: 15px;
 }
+
+.forum [class^="icon-"] {
+	margin-left: -3px;
+	margin-right: 3px;
+	margin-top: 1px;
+}
+
+.forum-table {
+	width: 1000px;
+	margin-top: 20px;
+	float: left;
+}
+
 .forum-table th, .forum-table td {
     text-align: left;
     vertical-align: middle;
 }
-.forum-table td {
-    padding: 6px 0;
-    border-bottom: 1px solid #c9c9c9;
+
+.forum-table th {
+	border: none;
 }
+
+.forum-table td {
+    padding: 5px 0;
+}
+
 .forum-table th.header, .form-table th.header {
-    font-size: 16px;
-    font-weight: bold;
-    font-style: inherit;
-    background-color: #e1e1e1;
-    -moz-border-radius: 5px 5px 0 0;
     padding: 3px 5px;
     text-align: left;
 }
+
 .forum-icon img {
     border: none;
     margin: 0;
 }
+
+tr.header {
+	background: #FFFCEC;
+}
+
+tr.header-alt {
+	background: #f5f5f5;
+}
+
 th.forum-icon {
     width: 20px;
 }
+
 td.forum-icon, td.forum-name {
     vertical-align: top;
-    padding-left: 5px;
 }
+
+.forum-table .forum-name h3 {
+	margin-left: 15px;
+}
+
 .forum-table .forum-topic, .forum-table .forum-replies {
     text-align: center;
     width: 75px;
 }
-td.forum-name, th.forum-name {
-    padding-left: 5px;
-    padding-right: 5px;
-}
+
 .forum-table th {
-    background-color: #e1e1e1;
-    border-bottom: 1px solid #c9c9c9;
     padding: 5px 0;
-    font-weight: bold;
 }
+
 th.forum-info, td.forum-info {
     width: 160px;
     padding-right: 5px;
 }
+
 .forum-name div {
     padding-bottom: 7px;
+	font-size: 16px;
+	color: #333333;
+	margin-left: 15px;
 }
-.forum-name div.title {
-    font-weight: bold;
+
+.forum-name .title h4 {
+    margin: 0;
 }
+
 .forum-info div {
     padding: 0;
-    font-size: smaller;
+	color: #333333;
 }
+
+.author-label {
+	font-size: 12px !important;
+}
+
 /**
  * anchor button styles
  *
@@ -72,12 +105,11 @@ th.forum-info, td.forum-info {
 /* container that holds the new topic and reply buttons */
 .forum-buttons {
     margin-bottom: 5px;
+	margin-left: 10px;
+	float: left;
 }
 /* global forum anchor button style */
 a.button {
-    -moz-border-radius: 5px;
-    background-color: #e1e1e1;
-    border: 1px solid #c9c9c9;
     padding: 1px 5px;
     float: right;
     margin-right: 5px;
@@ -89,29 +121,35 @@ a.newtopic, a.newreply {
 /**
  * Topic Table styles - the table that displays the topic thread
  */
-.topic-table {
-    
+.topic-table {   
+}
+.topic-table td.forum-name h5 {
+	margin-left: 10px;
 }
 .topic-table td.author {
     padding-left: 5px;
 }
 .topic-table td.authorinfo {
-    padding-left: 5px;
+    padding-left: 10px;
     vertical-align: top;
-    border-right: 1px solid #e9e9e9;
-    width: 200px;
+    width: 150px;
 }
 .topic-table td.authorinfo div {
-    font-size: 11px;
+    font-size: 12px;
+	color: #333333;
     padding-bottom: 3px;
 }
-.topic-table td.authorinfo img {
-    margin: 0;
+.topic-table td.authorinfo h4 {
+	margin-top: 0;
+	margin-bottom: 15px;
 }
 .topic-table td.body {
     padding-left: 5px;
     padding-right: 5px;
     vertical-align: top;
+	font-size: 16px;
+	color: #333333;
+	line-height: 20px;
 }
 .topic-table .postreport {
     padding-left: 5px;
@@ -119,7 +157,6 @@ a.newtopic, a.newreply {
     text-align: right;
 }
 .topic-table .postlinks td {
-    background-color: #e9e9e9;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -127,19 +164,17 @@ a.newtopic, a.newreply {
     text-align: right;
 }
 .topic-table blockquote, .preview blockquote {
-    margin: 8px;
-    border: 1px solid #c9c9c9;
-    padding: 8px;
-}
-.topic-table blockquote p, .preview blockquote p {
+    margin: 15px 10px;
     padding: 0;
     font-style: italic;
-    font-size: 11px;
+    font-size: 14px;
+	color: #777777;
 }
 .topic-table blockquote strong, .preview blockquote strong {
     font-weight: bold;
 }
 .sticky {
+	display:none;
     float: left;
 }
 /** ------------------------------- **/
@@ -147,7 +182,6 @@ a.newtopic, a.newreply {
 /** Post preview styles **/
 .preview {
     padding: 8px;
-    border: 1px solid #e9e9e9;
     margin-bottom: 5px;
 }
 .preview h4, .preview h5 {
@@ -163,6 +197,8 @@ a.newtopic, a.newreply {
  */
 #forum-search {
     float: right;
+	margin-top: -5px;
+	margin-right: 5px;
     margin-bottom: 20px;
 }
 #forum-search form >* {
@@ -172,9 +208,15 @@ a.newtopic, a.newreply {
 #forum-search form a {
     display: block;
 }
+#forum-search form a.as {
+	margin-top: 5px;
+}
+#forum-search input[type="text"] {
+    width: 200px;
+	padding: 6px 3px;
+}
 #forum-search input[type="submit"] {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 7px 6px 6px 6px;
 }
 .forum-buttons #forum-search form a {
     border: none;
@@ -245,6 +287,8 @@ p.submit input {
 /* Form Table styles - when creating new topics */
 table.form-table {
     width: 100%;
+	float: left;
+	margin-left: -110px;
 }
 .form-table th.header {
     boder-radius: 5px;
@@ -272,12 +316,35 @@ table.form-table {
 form.forum {
     width: 100%;
 }
+
 .form-table .forum_buttons a {
     padding: 2px 12px;
-    color: #222222;
-    float: left;
-    border-right: 1px solid #c9c9c9;
-    border-left: 0.5px solid #ffffff;
+    -webkit-appearance: none;
+  	-moz-border-radius: 4px;
+  	-webkit-border-radius: 4px;
+  	border-radius: 4px;
+  	-moz-background-clip: padding;
+  	-webkit-background-clip: padding;
+  	background-clip: padding-box;
+  	background: #dddddd;
+  	background-image: -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#dddddd));
+  	background-image: -moz-linear-gradient(#ffffff, #dddddd);
+  	background-image: -ms-linear-gradient(#ffffff, #dddddd);
+  	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #dddddd));
+  	background-image: -webkit-linear-gradient(#ffffff, #dddddd);
+  	background-image: -o-linear-gradient(#ffffff, #dddddd);
+  	background-image: linear-gradient(#ffffff, #dddddd);
+  	border: 1px solid;
+  	border-color: #dddddd #bbbbbb #999999;
+  	cursor: pointer;
+  	color: #333333;
+  	font-weight: bold;
+  	outline: 0;
+  	overflow: visible;
+  	padding: 5px 10px;
+  	text-shadow: #ffffff 0 1px 1px;
+  	width: auto;
+  	font-size: 12px;
 }
 .form-table .forum_buttons #email {
     border-right: none;
@@ -287,11 +354,7 @@ form.forum {
 }
 .form-table .forum_buttons {
     float: left;
-    border-radius: 6px;
-    -moz-border-radius: 6px;
-    background-color: #e9e9e9;
-    padding-left: 6px;
-    padding-right: 6px;
+	margin-top: 10px;
 }
 .form-table .message >* {
     vertical-align: top;
@@ -312,20 +375,39 @@ form.forum {
 
 /** holds the anchor buttons for markall and new topics **/
 #post-actions {
+	margin-left: 10px;
     float: left;
 }
-.border-left {
-    border-left: 1px solid #c9c9c9;
+
+/* Buttons */
+.mod_buttons {
+	margin: -5px 5px 0 0;
+	float: right;
 }
-.border-right {
-    border-right: 1px solid #c9c9c9;
+
+input.forum_buttons {
+	color: #333333;
+	margin-right: 5px;
 }
-.border-top {
-    border-top: 1px solid #c9c9c9;
+
+/* badge */
+span.badge {
+	padding: 8px;
+	margin-right: 125px;
+	margin-bottom: 5px;
+	float: left;
+	text-align: center;
+	border-radius: 3px;
 }
-.border-bottom {
-    border-bottom: 1px solid #c9c9c9;
+a span.badge {
+	color: #333333;
+	font-weight: bold;
 }
-br.clear-both {
-    clear: both;
+span.badge img {
+	margin-top: 5px;
 }
+
+span.user { background: #eeeeee; }
+span.support { background: #53b9d7; }
+span.designer { background: #fe57a1; }
+span.admin { background: #ffa302; }

@@ -88,7 +88,7 @@ class Search extends Public_Controller {
 			    'forums_m',
 			    'forum_posts_m',
 			    'forum_subscriptions_m',
-			    'users/users_m',
+			    'users/user_m',
 			    'forum_searches_m'
 			    )
 			);
@@ -98,9 +98,10 @@ class Search extends Public_Controller {
     	$this->load->helper(array('forums', 'users/user'));
         $this->load->helper($this->settings->item('forums_editor'));
         
-        $this->template->enable_parser_body(FALSE)
-			->append_metadata( theme_css('forums.css') )
-			->append_metadata( js('forums.js', 'forums') )
+        $this->template
+			//->enable_parser_body(FALSE)
+			->append_css('module::forums.css')
+			->append_js('module::forums.js')
 			->set_breadcrumb(lang('breadcrumb_base_label'), '/')
 			->set_breadcrumb(lang('forums_forum_title'), 'forums');
     }

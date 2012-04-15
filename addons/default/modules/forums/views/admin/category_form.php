@@ -1,21 +1,26 @@
+<section class="title">
 <?php if($this->method == 'create_category'): ?>
-	<h3><?php echo lang('forums_create_category_title');?></h3>
+	<h4><?php echo lang('forums_create_category_title');?></h4>
 <?php else: ?>
-	<h3><?php echo sprintf(lang('forums_edit_category_title'), $category->title);?></h3>
+	<h4><?php echo sprintf(lang('forums_edit_category_title'), $category->title);?></h4>
 <?php endif; ?>
-
+</section>
+<section class="item">
 <?php echo form_open($this->uri->uri_string(), 'class="crud"', array('id' => $category->id)); ?>
-
-	<ol>
+<div class="form_inputs">
+	<fieldset>
+	<ul>
 
 		<li class="even">
-			<label for="title"><?php echo lang('forums_title_label');?></label>
-			<?php echo form_input('title', $category->title, 'maxlength="100"'); ?>
-			<span class="required-icon tooltip"><?php echo lang('required_label');?></span>
+			<label for="title"><?php echo lang('forums_title_label');?><span>*</span></label>
+			<div class="input"><?php echo form_input('title', $category->title, 'maxlength="100" class="text"'); ?></div>
 		</li>
 
-	</ol>
+	</ul>
+	</fieldset>
+</div>
 	<div class="buttons align-right padding-top">
 	<?php $this->load->view('admin/partials/buttons', array('buttons' => array('save', 'cancel') )); ?>
 	</div>
 <?php echo form_close(); ?>
+</section>

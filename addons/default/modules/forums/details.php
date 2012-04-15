@@ -2,7 +2,7 @@
 
 class Module_Forums extends Module {
 
-	public $version = '1.1.6';
+	public $version = '1.2';
 	protected $_tables = array('forums', 'forum_categories', 'forum_posts', 'forum_subscriptions', 'forum_read_topics', 'forum_searches');
 
 	public function info()
@@ -30,7 +30,28 @@ class Module_Forums extends Module {
 			),
 			'frontend' => TRUE,
 			'backend'  => TRUE,
-			'menu'	  => 'content'
+			'menu'	  => 'content',
+			
+			'sections' => array(
+			    'categories' => array(
+				    'name' => 'forums_list_categories_title',
+				    'uri' => 'admin/forums',
+				    'shortcuts' => array(
+						array(
+					 	   'name' => 'forums_create_category_title',
+						    'uri' => 'admin/forums/create_category',
+						),
+					),
+				),
+				'list_forums' => array(
+				    'shortcuts' => array(
+						array(
+					 	   'name' => 'forums_create_forum_title',
+						    'uri' => 'admin/forums/create_forum/'.$this->uri->segment(4),
+						),
+					),
+				)
+		    ),
 		);
 	}
 

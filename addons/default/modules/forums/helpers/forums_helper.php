@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 /***
  * PyroCMS
  *
@@ -24,7 +24,7 @@ function forum_date($timestamp = FALSE, $append_time = TRUE)
         
         $time = $append_time ? ' g:i a' : '' ;
         
-        if ( ! function_exists('format_date'))
+        if(!function_exists('format_date'))
         {
                 return date($CI->settings->forums_date_format . $time, $timestamp);
         }
@@ -94,13 +94,13 @@ function auto_bblink($str, $type = 'both', $popup = FALSE)
 function sanitize_search_results($str = FALSE, $limit = 25)
 {
 		$ci =& get_instance();
-        if ($str)
+        if($str)
         {
                 //since we are going to be wrapping $str in anchor tags
                 $str = htmlentities($str);
                 
                 //handle the PITA { left curly brace so Tags Library doesn't bitch
-                $str = str_replace('{', '&#123', $str);
+                //$str = str_replace('{', '&#123', $str);
                 
                 //remove code tags 
                 $str = strip_code_tags($str);
@@ -119,13 +119,13 @@ function sanitize_search_results($str = FALSE, $limit = 25)
  */
 function forum_entities($str = FALSE, $entities = FALSE)
 {
-        if ($str)
+        if($str)
         {
                 //convert to entities?
                 $str = $entities ? htmlentities($str) : $str;
                 
                 //convert the { character
-                $str = str_replace('{', '&#123;', $str);
+                //$str = str_replace('{', '&#123;', $str);
         }
         return $str;
 }
@@ -134,13 +134,13 @@ function lock_button($topic)
 {
 		$ci =& get_instance();
 		$anchor = '';
-		if ( ! $topic->is_locked and $ci->forums_lib->can_lock($topic))
+		if(!$topic->is_locked and $ci->forums_lib->can_lock($topic))
 		{
-				$anchor = anchor('forums/topics/lock/' . $topic->id, lang('forums.lock_label'), 'class="button lock"');
+				$anchor = anchor('forums/topics/lock/' . $topic->id, '<i class="icon-white icon-remove-circle"></i>' . lang('forums.lock_label'), 'class="btn danger"');
 		}
-		if ($topic->is_locked and $ci->forums_lib->can_lock($topic))
+		if($topic->is_locked and $ci->forums_lib->can_lock($topic))
 		{
-				$anchor = anchor('forums/topics/unlock/' . $topic->id, lang('forums.unlock_label'), 'class="button unlock"');
+				$anchor = anchor('forums/topics/unlock/' . $topic->id, '<i class="icon-white icon-ok-circle"></i>' . lang('forums.unlock_label'), 'class="btn success"');
 		}
 		return $anchor;
 }
@@ -148,13 +148,13 @@ function sticky_button($topic)
 {
 		$ci =& get_instance();
 		$anchor = '';
-		if ( ! $topic->sticky and $ci->forums_lib->can_sticky($topic))
+		if(!$topic->sticky and $ci->forums_lib->can_sticky($topic))
 		{
-				$anchor = anchor('forums/topics/stick/' . $topic->id, lang('forums.stick_label'), 'class="button stick"');
+				$anchor = anchor('forums/topics/stick/' . $topic->id, '<i class="icon-star"></i>' . lang('forums.stick_label'), 'class="btn default"');
 		}
-		if ($topic->sticky and $ci->forums_lib->can_sticky($topic))
+		if($topic->sticky and $ci->forums_lib->can_sticky($topic))
 		{
-				$anchor = anchor('forums/topics/unstick/' . $topic->id, lang('forums.unstick_label'), 'class="button unstick"');
+				$anchor = anchor('forums/topics/unstick/' . $topic->id, '<i class="icon-star"></i>' . lang('forums.unstick_label'), 'class="btn default"');
 		}
 		return $anchor;
 }
@@ -164,9 +164,9 @@ function edit_button($post)
 		$ci =& get_instance();
 		$anchor = '';
 		
-		if ($ci->forums_lib->can_edit($post))
+		if($ci->forums_lib->can_edit($post))
 		{
-				$anchor = anchor('forums/posts/edit_reply/'.$post->id, lang('forums_edit_label'), 'class="button edit"');
+				$anchor = anchor('forums/posts/edit_reply/'.$post->id, '<i class="icon-white icon-edit"></i>' . lang('forums_edit_label'), 'class="btn warning"');
 		}
 		
 		return $anchor;
@@ -177,9 +177,9 @@ function delete_button($post)
 		$ci =& get_instance();
 		$anchor = '';
 		
-		if ($ci->forums_lib->can_delete($post))
+		if($ci->forums_lib->can_delete($post))
 		{
-				$anchor = anchor('forums/posts/delete_reply/'.$post->id, lang('forums_delete_label'), 'class="button delete"');
+				$anchor = anchor('forums/posts/delete_reply/'.$post->id, '<i class="icon-white icon-remove"></i>' . lang('forums_delete_label'), 'class="btn danger"');
 		}
 		
 		return $anchor;
@@ -190,9 +190,9 @@ function quote_button($post, $topic)
 		$ci =& get_instance();
 		$anchor = '';
 		
-		if ( ! $topic->is_locked or $ci->forums_lib->can_lock($topic))
+		if(!$topic->is_locked or $ci->forums_lib->can_lock($topic))
 		{
-				$anchor = anchor('forums/posts/quote_reply/'.$post->id, lang('forums.quote_label'), 'class="button quote"');
+				$anchor = anchor('forums/posts/quote_reply/'.$post->id,'<i class="icon-white icon-share"></i>' . lang('forums.quote_label'), 'class="btn info"');
 		}
 		
 		return $anchor;
@@ -205,9 +205,9 @@ function reply_button($topic, $closed)
 		
 		$topic->is_locked = $closed ? TRUE : $topic->is_locked;
 		
-		if ( ! $topic->is_locked or $ci->forums_lib->can_lock($topic))
+		if(!$topic->is_locked or $ci->forums_lib->can_lock($topic))
 		{
-				$anchor = anchor('forums/posts/new_reply/'.$topic->id, lang('forums.new_reply_label'), 'class="button newreply"');
+				$anchor = anchor('forums/posts/new_reply/'.$topic->id, '<i class="icon-white icon-share-alt"></i>' . lang('forums.new_reply_label'), 'class="btn info"');
 		}
 		
 		return $anchor;
@@ -218,9 +218,9 @@ function new_topic_button($forum_id, $closed)
 		$ci =& get_instance();
 		$anchor = '';
 		
-		if ( ! $closed or $ci->forums_lib->can_post($forum_id))
+		if(!$closed or $ci->forums_lib->can_post($forum_id))
 		{
-				$anchor = anchor('forums/topics/new_topic/'.$forum_id, lang('forums.new_topic_label'), 'class="button newtopic"');
+				$anchor = anchor('forums/topics/new_topic/'.$forum_id, '<i class="icon-white icon-pencil"></i>' . lang('forums.new_topic_label'), 'class="btn success"');
 		}
 		
 		return $anchor;
@@ -231,18 +231,18 @@ function unread_button($forum_id, $topic_id)
 		$ci =& get_instance();
 		$anchor = '';
 		
-		if ($ci->current_user)
+		if($ci->ion_auth->logged_in())
 		{
 				$read_topics = $ci->forum_read_topics_m->read_topics($ci->current_user->id);
 				
 				//does the forum exist in the array
 				$forum = array_key_exists($forum_id, $read_topics) ? $read_topics[$forum_id] : array();
 				
-				if ( ! empty($forum))
+				if(!empty($forum))
 				{
-						if (array_key_exists($topic_id, $forum))
+						if(array_key_exists($topic_id, $forum))
 						{
-								$anchor = anchor('forums/topics/unread/'.$forum_id . '/' . $topic_id, lang('forums_unread_button'), 'class="button unread"');
+								$anchor = anchor('forums/topics/unread/'.$forum_id . '/' . $topic_id, '<i class="icon-white icon-remove"></i>' . lang('forums_unread_button'), 'class="btn warning"');
 						}
 				}
 		}

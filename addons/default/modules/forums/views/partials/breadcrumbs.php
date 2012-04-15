@@ -4,7 +4,7 @@ foreach ($template['breadcrumbs'] as $crumb) {
 	if(!empty($crumb->uri))
 	{
 		echo anchor($crumb['uri'], $crumb['name']);
-		echo "&rsaquo";
+		echo " > ";
 	}
 	else
 	{
