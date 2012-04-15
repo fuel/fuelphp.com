@@ -1,29 +1,12 @@
 {{ theme:partial name="header" }}
 
-	{{ if {url:segments segment="1"} == 'forums' OR url:current == url:base }}
 	<div id="content">
-	{{ else }}
-	<div id="content_side">
-	{{ /if }}
 
-		{{ if {url:segments segment="1"} == 'forums' }}
-			{{ theme:partial name="breadcrumbs" }}
-		{{ /if }}
 
-		{{ if {url:segments segment="1"} == 'blog' OR {url:segments segment="1"} == 'contact' OR { url:segments segment="1" } == 'users' }}
-			<div class="post">
-				{{ template:body }}
-			</div>
-
-			{{ theme:partial name="sidebar" }}
-
-		{{ else }}
 
 			<div class="page">
 				{{ template:body }}
 			</div>
-
-		{{ /if }}
 
 	</div>
 
