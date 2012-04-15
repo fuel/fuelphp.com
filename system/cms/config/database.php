@@ -33,10 +33,10 @@
 
 // Development
 $db[PYRO_DEVELOPMENT] = array(
-	'hostname'		=> 	'127.0.0.1',
+	'hostname'		=> 	'localhost',
 	'username'		=> 	'root',
 	'password'		=> 	'password',
-	'database'		=> 	'pyrocms',
+	'database'		=> 	'fuelphp',
 	'dbdriver' 		=> 	'mysqli',
 	'port' 	 		=>	3306,
 	'active_r' 		=>	TRUE,
