@@ -2,11 +2,24 @@
 
 	<div id="content">
 
+		{{ if {url:segments segment="1"} == 'forums' }}
+			{{ theme:partial name="breadcrumbs" }}
+		{{ endif }}
 
+		{{ if {url:segments segment="1"} == 'blog' OR {url:segments segment="1"} == 'contact' OR { url:segments segment="1" } == 'users' }}
+			<div class="post">
+				{{ template:body }}
+			</div>
+
+			{{ theme:partial name="sidebar" }}
+
+		{{ else }}
 
 			<div class="page">
 				{{ template:body }}
 			</div>
+
+		{{ endif }}
 
 	</div>
 
