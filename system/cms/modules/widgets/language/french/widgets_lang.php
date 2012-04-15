@@ -7,7 +7,7 @@ $lang['widgets.instructions']	 			= 'Glisser-déposer pour installer le widget';
 
 
 $lang['widgets.instances']            	= 'Instances';
-$lang['widgets.areas']            		= 'Areas';
+$lang['widgets.areas']            		= 'Zones';
 
 // Widgets
 $lang['widgets.widget'] 					= 'Widget';
@@ -29,10 +29,7 @@ $lang['widgets.widget_area'] 				= 'Zone';
 $lang['widgets.widget_area_title'] 			= 'Nome de la zone';
 $lang['widgets.widget_area_slug'] 			= 'Nom court';
 
-// Widget instance titles
-$lang['widgets.add_instance'] 				= 'Ajouter un widget';
-$lang['widgets.edit_instance'] 				= 'Editer ce widget';
-$lang['widgets.delete_instance'] 			= 'Supprimer ce widget';
+$lang['widgets.view_code']				= 'Voir le code';
 
 $lang['widgets.instance_title'] 			= 'Titre';
 $lang['widgets.tag_title']					= 'Tag';

@@ -1,5 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header']                  = 'הרשמה';
 $lang['user_register_step1']                   = '<strong>שלב 1:</strong> הרשמה';
 $lang['user_register_step2']                   = '<strong>שלב 2:</strong> הפעלה';
@@ -71,6 +79,7 @@ $lang['user_reset_password_link']              = 'שכחת סיסמה?';
 
 $lang['user_activation_code_sent_notice']      = 'אימייל עם קוד הפעלה נשלח אליך.';
 $lang['user_activation_by_admin_notice']       = 'הרשמתך מחכה לאישורו של המנהל.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Settings ---------------------------------------------------------------------------------------------
 
@@ -112,6 +121,7 @@ $lang['user_mass_delete_error']                = 'עליך קודם לבחור �
 // Register
 $lang['user_email_pass_missing']               = 'חסר שדה אימייל או סיסמה.';
 $lang['user_email_exists']                     = 'כתובת האימייל שבחרתם כבר בשימוש.';
+$lang['user_register_error']				   = 'We think you are a bot. If we are mistaken please accept our apologies.'; #translate
 $lang['user_register_reasons']                 = 'הצטרף למעלה כדי לגשת אזורים מיוחדים מוגבלים בדרך כלל. משמעות הדבר היא ההגדרות שלך ייזכר, יותר תוכן פחות פרסומת .';
 
 

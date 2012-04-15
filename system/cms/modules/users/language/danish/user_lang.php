@@ -1,5 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header']                  = 'Registrering';
 $lang['user_register_step1']                   = '<strong>Step 1:</strong> Registrér';
 $lang['user_register_step2']                   = '<strong>Step 2:</strong> Aktivér';
@@ -72,6 +80,7 @@ $lang['user_reset_password_link']              = 'Glemt password?';
 
 $lang['user_activation_code_sent_notice']      = 'Du modtager nu en e-mail med din aktiveringskode.';
 $lang['user_activation_by_admin_notice']       = 'Din registering afventer godkendelse af en administrator.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Settings ---------------------------------------------------------------------------------------------
 
@@ -113,6 +122,7 @@ $lang['user_mass_delete_error']                = 'Du skal først vælge brugere.
 // Register
 $lang['user_email_pass_missing']               = 'Email- eller password-felterne er ikke korrekte.';
 $lang['user_email_exists']                     = 'Den valgte email-adresse er allerede i brug.';
+$lang['user_register_error']				   = 'We think you are a bot. If we are mistaken please accept our apologies.'; #translate
 $lang['user_register_reasons']                 = 'Tilmeld dig for at få adgang til en række fordele. Dette betyder, at dine indstillinger vil blive gemt og mere indhold vil være tilgængeligt.';
 
 

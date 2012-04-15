@@ -4,14 +4,13 @@
 * [Documentation](http://pyrocms.com/docs)
 * [License](http://pyrocms.com/legal/license)
 * [Forums](http://pyrocms.com/forums)
-* Version: 2.0.0-dev
+* Version: 2.1.0-dev
 
 ## Team
 
 * [Phil Sturgeon](http://philsturgeon.co.uk/)
-* [Eric Barnes](http://ericlbarnes.com/)
-* [Stephen Cozart](http://twitter.com/stephencozart)
 * [Jerel Unruh](http://unruhdesigns.com/)
+* [Adam Fairholm](http://parse19.com/)
 
 ## Description
 
@@ -28,20 +27,7 @@ Run http://example.com/installer to run the web-based installation script.
 
 ## Upgrading
 
-You no longer need to do anything to upgrade the database. To upgrade the files simply backup the following files then replace system/cms:
-
-	system/cms/config/config.php
-	system/cms/config/database.php
-
-<!-- Added by IMAMO --> 
-In config.php you have to replace last lines to this (if you don't galleries wont work):
-
-$config['modules_locations'] = array(
-	APPPATH.'modules/' => '../modules/',
-	ADDON_FOLDER.'default/modules/' => '../../../addons/default/modules/',
-	SHARED_ADDONPATH.'modules/' => '../../../addons/shared_addons/modules/'
-);
-
+For a detailed upgrade guide please look at the [2.0 Upgrading Documentation](http://www.pyrocms.com/docs/2.0/getting-started/upgrading-within-2.0).
 
 ## Bugs & Feature Requests
 
@@ -62,12 +48,14 @@ It's strongly recommended that you download the [git-flow client](https://github
 
 ### Contributors
 
-* Lee Tengum
+* [Lee Tengum](http://twitter.com/thatleeguy)
 * [BenneX](http://github.com/BenneX)
 * [Colin Williams](http://williamsconcepts.com/)
 * [Yorick Peterse](http://www.yorickpeterse.com/)
 * [Dan Horrigan](http://dhorrigan.com/)
 * [Ben Edmunds](http://benedmunds.com/)
+* [Eric Barnes](http://ericlbarnes.com/)
+* [Stephen Cozart](http://twitter.com/stephencozart)
 
 Think you should be on this list? Add yourself in the next pull request you submit.
 
@@ -86,3 +74,5 @@ Think you should be on this list? Add yourself in the next pull request you subm
 * [imamo](http://www.imamo.si/) Slovenian
 * [Petsagourakis George](https://github.com/petsagouris) Greek
 * [Mikael Kundert](https://github.com/mikaelkundert) Finnish
+* [Jack Sun](http://www.o-matic.com.tw/) Chinese Traditional
+* [Toni Haryanto](http://toniharyanto.cs.upi.edu/) Indonesian

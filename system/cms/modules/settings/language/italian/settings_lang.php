@@ -90,15 +90,6 @@ $lang['settings_ga_tracking_desc']				= 'Enter your Google Analytic Tracking Cod
 $lang['settings_twitter_username'] 				= 'Username';
 $lang['settings_twitter_username_desc'] 		= 'Twitter username.';
 
-$lang['settings_twitter_consumer_key'] 			= 'Consumer Key';
-$lang['settings_twitter_consumer_key_desc'] 	= 'Twitter consumer key.';
-
-$lang['settings_twitter_consumer_key_secret'] 	= 'Consumer Key Secret';
-$lang['settings_twitter_consumer_key_secret_desc'] = 'Twitter consumer key secret.';
-
-$lang['settings_twitter_blog']					= 'Integrazione Twitter &amp; Notizie.';
-$lang['settings_twitter_blog_desc'] 			= 'Vuoi postare i collegamenti alle nuove notizie su Twitter?';
-
 $lang['settings_twitter_feed_count'] 			= 'Numero dei Feed';
 $lang['settings_twitter_feed_count_desc'] 		= 'Quanti tweets devono essere restituiti blocco dei feed di Twitter?';
 
@@ -116,6 +107,15 @@ $lang['settings_moderate_comments_desc']		= 'Obbliga che i commenti siano approv
 
 $lang['settings_version'] 						= 'Versione';
 $lang['settings_version_desc'] 					= '';
+
+$lang['settings_ckeditor_config']               = 'CKEditor Config'; #translate
+$lang['settings_ckeditor_config_desc']          = 'You can find a list of valid configuration items in <a target=\"_blank\" href=\"http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html\">CKEditor\'s documentation.</a>'; #translate
+
+$lang['settings_enable_registration']           = 'Enable user registration'; #translate
+$lang['settings_enable_registration_desc']      = 'Allow users to register in your site.'; #translate
+
+$lang['settings_cdn_domain']                    = 'CDN Domain'; #translate
+$lang['settings_cdn_domain_desc']               = 'CDN domains allow you to offload static content to various edge servers, like Amazon CloudFront or MaxCDN.'; #translate
 
 #section titles
 $lang['settings_section_general']				= 'Generale';

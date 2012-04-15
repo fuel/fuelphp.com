@@ -3,7 +3,8 @@
 $lang['modules.core_list']               = 'Moduli jedra';
 $lang['modules.addon_list']              = 'Dodani moduli';
 $lang['modules.introduction']            = 'Spodaj je seznam nameščenih modulov in informacije o njih kot je opis in verzija.';
-$lang['modules.disable_error']           = 'Modula "%s" ni možno onemogočiti.';
+$lang['modules.core_introduction']		 = 'Spodaj so glavni moduli sistema in informacije o njih. Lahko jih onemogočite vendar to storite z veliko previdnostjo. Onemogočitev modulov kot npr. Uporabniki bo povzročilo nepravilno delovanje strani.';
+$lang['modules.disable_error']            = 'Modula "%s" ni možno onemogočiti.';
 $lang['modules.disable_success']         = 'Modul "%s" je bil onemogočen.';
 $lang['modules.enable_error']            = 'Modula "%s" ni možno omogočiti.';
 $lang['modules.enable_success']          = 'Modul "%s" je bil omogočen.';

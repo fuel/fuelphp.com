@@ -285,13 +285,13 @@ class Ion_auth
 	 * @return void
 	 * @author Mathew
 	 **/
-	public function register($username, $password, $email, $additional_data, $group_name = false) //need to test email activation
+	public function register($username, $password, $email, $group_id = null, $additional_data = array(), $group_name = false) //need to test email activation
 	{
 	    $email_activation = $this->ci->config->item('email_activation', 'ion_auth');
 
 		if ( ! $email_activation)
 		{
-			$id = $this->ci->ion_auth_model->register($username, $password, $email, $additional_data, $group_name);
+			$id = $this->ci->ion_auth_model->register($username, $password, $email, $group_id, $additional_data, $group_name);
 			if ($id !== FALSE)
 			{
 				$this->set_message('account_creation_successful');
@@ -305,7 +305,7 @@ class Ion_auth
 		}
 		else
 		{
-			$id = $this->ci->ion_auth_model->register($username, $password, $email, $additional_data, $group_name);
+			$id = $this->ci->ion_auth_model->register($username, $password, $email, $group_id, $additional_data, $group_name);
 
 			if ( ! $id)
 			{
@@ -325,7 +325,7 @@ class Ion_auth
 			$user				= $this->ci->ion_auth_model->get_user($id)->row();
 
 			// Add in some extra details
-			$data['subject']			= $this->ci->settings->get('site_name') . ' - Account Activation';
+			$data['subject']			= $this->ci->settings->get('site_name') . ' - Account Activation'; // No translation needed as this is merely a fallback to Email Template subject
 			$data['slug'] 				= 'activation';
 			$data['to'] 				= $email;
 			$data['from'] 				= $this->ci->settings->get('server_email');
@@ -362,6 +362,18 @@ class Ion_auth
 	public function login($identity, $password, $remember=false)
 	{
 		if ($this->ci->ion_auth_model->login($identity, $password, $remember))
+		{
+			$this->set_message('login_successful');
+			return TRUE;
+		}
+
+		$this->set_error('login_unsuccessful');
+		return FALSE;
+	}
+	
+	public function force_login($user_id, $remember = false)
+	{
+		if ($this->ci->ion_auth_model->force_login($user_id, $remember))
 		{
 			$this->set_message('login_successful');
 			return TRUE;
@@ -643,9 +655,9 @@ class Ion_auth
 	 * @return void
 	 * @author Phil Sturgeon
 	 **/
-	public function update_user($id, $data)
+	public function update_user($id, $data, $profile_data)
 	{
-		 if ($this->ci->ion_auth_model->update_user($id, $data))
+		 if ($this->ci->ion_auth_model->update_user($id, $data, $profile_data))
 		 {
 			$this->set_message('update_successful');
 			return TRUE;

@@ -1,8 +1,16 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header'] 	= 'Enregistrement';
-$lang['user_register_step1'] 	= '<strong>Etape 1:</strong> Enregistrez-vous';
-$lang['user_register_step2'] 	= '<strong>Etape 2:</strong> Activation';
+$lang['user_register_step1'] 	= '<strong>Etape 1&nbsp;:</strong> Enregistrez-vous';
+$lang['user_register_step2'] 	= '<strong>Etape 2&nbsp;:</strong> Activation';
 
 $lang['user_login_header'] 		= 'Login';
 
@@ -53,7 +61,7 @@ $lang['user_first_name'] 	= 'Prénom';
 $lang['user_last_name'] 	= 'Nom';
 $lang['user_username']          = 'Nom Utilisateur';
 $lang['user_display_name']      = 'Nom Affiché';
-$lang['user_email_use'] 					   = 'used to login'; #translate
+$lang['user_email_use'] 					   = 'utilisé pour se connecter';
 $lang['user_email'] 		= 'E-mail';
 $lang['user_confirm_email'] = 'Confirmez E-mail';
 $lang['user_password'] 		= 'Mot de passe';
@@ -71,6 +79,7 @@ $lang['user_reset_password_link'] = 'Mot de passe oublié ?';
 
 $lang['user_activation_code_sent_notice'] = 'Un e-mail vous a été envoyé avec votre code d\'activation.';
 $lang['user_activation_by_admin_notice'] = 'Votre enregistrement est en attente d\'approbation par l\'administrateur.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Settings ---------------------------------------------------------------------------------------------
 
@@ -112,6 +121,7 @@ $lang['user_mass_delete_error'] 							= 'Vous devez d\'abord seclectionner des 
 // Register
 $lang['user_email_pass_missing'] = 'l\'e-mail ou le mot de passe ne sont pas renseignés.';
 $lang['user_email_exists'] = 'L\'adresse e-mail choisie est déjà affectée à un autre utilisateur.';
+$lang['user_register_error']				   = 'Nous pensons que vous êtes un robot. Si nous faisons erreur, merci d\'daccepter nos excuses.';
 $lang['user_register_reasons'] = 'Abonnez-vous pour accéder aux espaces réservés. Vos paramètres seront enregistrés, plus de contenu et moins de publicité.';
 
 
@@ -192,14 +202,6 @@ $lang['profile_msn_handle'] = 'MSN';
 $lang['profile_aim_handle'] = 'AIM';
 $lang['profile_yim_handle'] = 'Yahoo! messenger';
 $lang['profile_gtalk_handle'] = 'GTalk';
-
-$lang['profile_avatar_section'] = 'Avatar';
-$lang['profile_social_section']       = 'Social';
-
-$lang['profile_gravatar'] = 'Gravatar';
-
-$lang['profile_edit_success'] = 'Votre profil a été enregistré.';
-$lang['profile_edit_error'] = 'Une erreur est survenue.';
 
 // -- Buttons ------------------------------------------------------------------------------------------------
 

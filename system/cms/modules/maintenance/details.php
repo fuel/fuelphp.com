@@ -1,14 +1,11 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
+ * Maintenance Module
  *
- * The Maintenance Module - currently only remove/empty cache folder(s)
- *
- * @author		Donald Myers
- * @package		PyroCMS
- * @subpackage	Maintenance Module
- * @category	Modules
+ * @author PyroCMS Dev Team
+ * @package PyroCMS\Core\Modules\Maintenance
  */
-class Module_Maintenance extends Module 
+class Module_Maintenance extends Module
 {
 
 	public $version = '1.0';
@@ -18,16 +15,28 @@ class Module_Maintenance extends Module
 		return array(
 			'name' => array(
 				'en' => 'Maintenance',
-				'el' => 'Συντήρηση',
 				'ar' => 'الصيانة',
+				'el' => 'Συντήρηση',
+				'fr' => 'Maintenance',
+				'id' => 'Pemeliharaan',
+				'zh' => '維護',
+				'hu' => 'Karbantartás',
+				'fi' => 'Ylläpito',
+                                'se' => 'Underhåll'
 			),
 			'description' => array(
-				'en' => 'Manually delete cache items via the admin interface.',
-				'el' => 'Διαγραφή αντικειμένων προσωρινής αποθήκευσης μέσω της σελίδας διαχείρισης.',
+				'en' => 'Manage the site cache and export information from the database.',
 				'ar' => 'حذف عناصر الذاكرة المخبأة عبر واجهة الإدارة.',
+				'el' => 'Διαγραφή αντικειμένων προσωρινής αποθήκευσης μέσω της περιοχής διαχείρισης.',
+				'fr' => 'Gérer le cache du site et exporter les contenus de la base de données',
+				'id' => 'Mengatur cache situs dan mengexport informasi dari database.',
+				'zh' => '經由管理介面手動刪除暫存資料。',
+				'hu' => 'Az oldal gyorsítótár kezelése és az adatbázis exportálása.',
+				'fi' => 'Hallinoi sivuston välimuistia ja vie tietoa tietokannasta.',
+                                'se' => 'Underhåll webbplatsens cache och exportera data från webbplatsens databas.'
 			),
-			'frontend' => FALSE,
-			'backend' => TRUE,
+			'frontend' => false,
+			'backend' => true,
 			'menu' => 'utilities'
 		);
 	}
@@ -35,28 +44,20 @@ class Module_Maintenance extends Module
 
 	public function install()
 	{
-		return TRUE;
+		return true;
 	}
 
 
 	public function uninstall()
 	{
-		return TRUE;
+		// This is a core module, lets keep it around.
+		return false;
 	}
 
 
 	public function upgrade($old_version)
 	{
-		return TRUE;
+		return true;
 	}
-
-
-	public function help()
-	{
-		return "This module will clean up and/or remove cache files and folders.";
-	}
-
 
 }
-
-/* End of file details.php */

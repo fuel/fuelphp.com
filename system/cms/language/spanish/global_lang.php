@@ -1,6 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 $lang['global:control-panel']		= 'Panel de Control';
+$lang['global:profile']					= 'Perfil'; 
 
 $lang['title_label']		= 'Título';
 $lang['name_label']		= 'Nombre';
@@ -59,20 +60,24 @@ $lang['approve_label']		= 'Aprobar';
 $lang['unapprove_label']	= 'Desaprobar';
 $lang['publish_label']		= 'Publicar';
 $lang['upload_label']		= 'Subir';
-$lang['uninstall_label']	= 'Desinstalar';
-$lang['install_label']		= 'Instalar';
-$lang['enable_label']		= 'Activar';
-$lang['disable_label']		= 'Desactivar';
+$lang['global:uninstall']	= 'Desinstalar';
+$lang['global:install']		= 'Instalar';
+$lang['global:enable']		= 'Activar';
+$lang['global:disable']		= 'Desactivar';
 
-$lang['global:sidebar']			= 'Shortcuts'; #translate
+$lang['all_right_reserved']				= 'Todos los derechos reservados.';  
+$lang['powered_by_pyrocms']				= 'Funciona con PyroCMS';  
+$lang['top_page']						= 'Subir'; 
+$lang['back_to_top']					= 'Volver arriba';  
+$lang['global:sidebar']			= 'Accesso directo'; 
 $lang['global:description']		= 'Descripción';
 $lang['global:actions']			= 'Acciones';
-$lang['global:view']					= 'View'; #translate
-$lang['global:preview']					= 'Preview'; #translate
-$lang['global:add']						= 'Add'; #translate
+$lang['global:view']					= 'Ver'; 
+$lang['global:preview']					= 'Previsualización'; 
+$lang['global:add']						= 'Añadir'; 
 $lang['global:edit']			= 'Editar';
-$lang['global:empty']					= 'Empty'; #translate
+$lang['global:empty']					= 'Vaciar'; 
 $lang['global:delete']			= 'Eliminar';
 $lang['global:remove']			= 'Eliminar';
 
-$lang['global:keywords']		= 'Keywords'; #translate
+$lang['global:keywords']		= 'Palabras claves'; 

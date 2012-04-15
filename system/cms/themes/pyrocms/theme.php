@@ -160,16 +160,10 @@ class Theme_PyroCMS extends Theme {
 					$data['messages']['notice'] = sprintf(lang('cp_google_analytics_no_connect'), anchor('admin/settings', lang('cp_nav_settings')));
 				}
 			}
-		}
 
-		// Only mention this notice if no other notices are set
-		elseif (empty($data['messages']['notice']))
-		{
-			$data['messages']['notice'] = sprintf(lang('cp_google_analytics_missing'), anchor('admin/settings', lang('cp_nav_settings')));
+			// make it available in the theme
+			$this->template->set($data);
 		}
-		
-		// make it available in the theme
-		$this->template->set($data);
 	}
 	
 	public function get_rss_feed()
@@ -191,7 +185,7 @@ class Theme_PyroCMS extends Theme {
 	public function get_recent_comments()
 	{
 		$this->load->model('comments/comments_m');
-		$this->load->model('users/users_m');
+		$this->load->model('users/user_m');
 
 		$this->lang->load('comments/comments');
 

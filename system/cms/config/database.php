@@ -31,22 +31,49 @@
 |
 */
 
-// Local
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'password';
-$db['default']['database'] = 'fuelphp';
-$db['default']['dbdriver'] = 'mysqli';
-$db['default']['dbprefix'] = '';
-$db['default']['stricton'] = TRUE;
-$db['default']['active_r'] = TRUE;
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_unicode_ci';
-$db['default']['port'] 	 = 3306;
+// Development
+$db[PYRO_DEVELOPMENT] = array(
+	'hostname'		=> 	'127.0.0.1',
+	'username'		=> 	'root',
+	'password'		=> 	'password',
+	'database'		=> 	'pyrocms',
+	'dbdriver' 		=> 	'mysqli',
+	'port' 	 		=>	3306,
+	'active_r' 		=>	TRUE,
+	'pconnect' 		=>	FALSE,
+	'db_debug' 		=>	TRUE,
+	'cache_on' 		=>	FALSE,
+	'char_set' 		=>	'utf8',
+	'dbcollat' 		=>	'utf8_unicode_ci',
+
+	// 'Tough love': Forces strict mode to test your app for best compatibility
+	'stricton' 		=> TRUE,
+);
+
+// Production
+$db[PYRO_PRODUCTION] = array(
+	'hostname'		=> 	@$_SERVER['DB1_HOST'],
+	'username'		=> 	@$_SERVER['DB1_USER'],
+	'password'		=> 	@$_SERVER['DB1_PASS'],
+	'database'		=> 	@$_SERVER['DB1_NAME'],
+	'port' 	 		=>	@$_SERVER['DB1_PORT'],
+	'dbdriver' 		=> 	'mysqli',
+	'active_r' 		=>	TRUE,
+	'pconnect' 		=>	FALSE,
+	'db_debug' 		=>	FALSE,
+	'cache_on' 		=>	FALSE,
+	'char_set' 		=>	'utf8',
+	'dbcollat' 		=>	'utf8_unicode_ci',
+);
+
+
+// Check the configuration group in use exists
+if ( ! array_key_exists(ENVIRONMENT, $db))
+{
+	show_error(sprintf(lang('error_invalid_db_group'), ENVIRONMENT));
+}
 
 // Assign the group to be used
-$active_group = 'default';
+$active_group = ENVIRONMENT;
+
+/* End of file database.php */

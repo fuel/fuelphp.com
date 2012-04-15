@@ -1,9 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * @author 		PyroCMS Dev Team
- * @package 	PyroCMS
- * @subpackage 	Modules
- * @category 	Blog
+ * 
+ * @author		PyroCMS Dev Team
+ * @package		PyroCMS\Core\Modules\Blog\Controllers
  */
 class Sitemap extends Public_Controller
 {
@@ -26,7 +25,7 @@ class Sitemap extends Public_Controller
 		{			
 			$node = $doc->addChild('url');
 
-			$loc = site_url(date('Y/m/', $article->created_on).$article->slug);
+			$loc = site_url('blog/'.date('Y/m/', $article->created_on).$article->slug);
 
 			$node->addChild('loc', $loc);
 

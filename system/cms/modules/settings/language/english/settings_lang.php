@@ -88,15 +88,6 @@ $lang['settings_ga_tracking_desc']				= 'Enter your Google Analytic Tracking Cod
 $lang['settings_twitter_username']				= 'Username';
 $lang['settings_twitter_username_desc']			= 'Twitter username.';
 
-$lang['settings_twitter_consumer_key']			= 'Consumer Key';
-$lang['settings_twitter_consumer_key_desc']		= 'Twitter consumer key.';
-
-$lang['settings_twitter_consumer_key_secret']	= 'Consumer Key Secret';
-$lang['settings_twitter_consumer_key_secret_desc'] = 'Twitter consumer key secret.';
-
-$lang['settings_twitter_blog']					= 'Twitter &amp; Blog integration.';
-$lang['settings_twitter_blog_desc']				= 'Would you like to post links to new blog articles on Twitter?';
-
 $lang['settings_twitter_feed_count']			= 'Feed Count';
 $lang['settings_twitter_feed_count_desc']		= 'How many tweets should be returned to the Twitter feed block?';
 
@@ -108,33 +99,65 @@ $lang['settings_akismet_api_key_desc']			= 'Akismet is a spam-blocker from the W
 
 $lang['settings_comment_order']					= 'Comment Order';
 $lang['settings_comment_order_desc']			= 'Sort order in which to display comments.';
+
+$lang['settings_enable_comments'] 				= 'Enable Comments';
+$lang['settings_enable_comments_desc']			= 'Allow users to post comments?';
 	
 $lang['settings_moderate_comments']				= 'Moderate Comments';
 $lang['settings_moderate_comments_desc']		= 'Force comments to be approved before they appear on the site.';
 
+$lang['settings_comment_markdown']				= 'Allow Markdown';
+$lang['settings_comment_markdown_desc']			= 'Do you want to allow visitors to post comments using Markdown?';
+
 $lang['settings_version']						= 'Version';
 $lang['settings_version_desc']					= '';
 
-#section titles
+$lang['settings_site_public_lang']				= 'Public Languages';
+$lang['settings_site_public_lang_desc']			= 'Which are the languages really supported and offered on the front-end of your website?';
+
+$lang['settings_admin_force_https']				= 'Force HTTPS for Control Panel?';
+$lang['settings_admin_force_https_desc']		= 'Allow only the HTTPS protocol when using the Control Panel?';
+
+$lang['settings_files_cache']					= 'Files Cache';
+$lang['settings_files_cache_desc']				= 'When outputting an image via site.com/files what shall we set the cache expiration for?';
+
+$lang['settings_auto_username']					= 'Auto Username';
+$lang['settings_auto_username_desc']			= 'Create the username automatically, meaning users can skip making one on registration.';
+
+$lang['settings_registered_email']				= 'User Registered Email';
+$lang['settings_registered_email_desc']			= 'Send a notification email to the contact e-mail when someone registers.';
+
+$lang['settings_ckeditor_config']               = 'CKEditor Config';
+$lang['settings_ckeditor_config_desc']          = 'You can find a list of valid configuration items in <a target=\"_blank\" href=\"http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html\">CKEditor\'s documentation</a>.';
+
+$lang['settings_enable_registration']           = 'Enable user registration';
+$lang['settings_enable_registration_desc']      = 'Allow users to register in your site.';
+
+$lang['settings_cdn_domain']                    = 'CDN Domain';
+$lang['settings_cdn_domain_desc']               = 'CDN domains allow you to offload static content to various edge servers, like Amazon CloudFront or MaxCDN.';
+
+# section titles
 $lang['settings_section_general']				= 'General';
 $lang['settings_section_integration']			= 'Integration';
 $lang['settings_section_comments']				= 'Comments';
 $lang['settings_section_users']					= 'Users';
 $lang['settings_section_statistics']			= 'Statistics';
 $lang['settings_section_twitter']				= 'Twitter';
+$lang['settings_section_files']					= 'Files';
 
-#checkbox and radio options
+# checkbox and radio options
 $lang['settings_form_option_Open']				= 'Open';
 $lang['settings_form_option_Closed']			= 'Closed';
 $lang['settings_form_option_Enabled']			= 'Enabled';
 $lang['settings_form_option_Disabled']			= 'Disabled';
 $lang['settings_form_option_Required']			= 'Required';
 $lang['settings_form_option_Optional']			= 'Optional';
-$lang['settings_form_option_Oldest First']		= 'Oldest First'; #translate
-$lang['settings_form_option_Newest First']		= 'Newest First'; #translate
-
-// titles
-$lang['settings_edit_title']					= 'Edit settings';
+$lang['settings_form_option_Oldest First']		= 'Oldest First';
+$lang['settings_form_option_Newest First']		= 'Newest First';
+$lang['settings_form_option_Text Only']			= 'Text Only';
+$lang['settings_form_option_Allow Markdown']	= 'Allow Markdown';
+$lang['settings_form_option_Yes']				= 'Yes';
+$lang['settings_form_option_No']				= 'No';
 
 // messages
 $lang['settings_no_settings']					= 'There are currently no settings.';

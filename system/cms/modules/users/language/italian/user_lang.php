@@ -1,5 +1,13 @@
 <?php
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header'] 			= 'Registrazione';
 $lang['user_register_step1'] 			= '<strong>Passo 1:</strong> Registrazione';
 $lang['user_register_step2'] 			= '<strong>Passo 2:</strong> Attivazione';
@@ -70,6 +78,7 @@ $lang['user_reset_password_link'] 		= 'Password dimenticata?';
 
 $lang['user_activation_code_sent_notice']	= 'Ti � stata inviata una email con il tuo codice di attivazione.';
 $lang['user_activation_by_admin_notice'] 	= 'La tua registrazione � in attesa di essere approvata da un amministratore.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Settings ---------------------------------------------------------------------------------------------
 
@@ -111,6 +120,7 @@ $lang['user_mass_delete_error'] 				= 'Devi prima selezionare gli utenti.';
 // Register
 $lang['user_email_pass_missing'] 				= 'I campi email o password sono incompleti';
 $lang['user_email_exists'] 						= 'L\' indirizzo email che hai scelto � gi� in uso da un altro utente.';
+$lang['user_register_error']				   = 'We think you are a bot. If we are mistaken please accept our apologies.'; #translate
 $lang['user_register_reasons'] 					= 'Unisciti per accedere ad aree speciali normalmente riservate. Questo significa che le tue impostazioni saranno salvate, pi� contenuti e minore pubblicit�.';
 
 

@@ -8,6 +8,14 @@
  * @link			http://pyrocms.com
  */
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header']								= 'Регистрация';
 $lang['user_register_step1']								= '<strong>Шаг 1:</strong> Регистрация';
 $lang['user_register_step2']								= '<strong>Шаг 2:</strong> Активация';
@@ -78,6 +86,7 @@ $lang['user_reset_password_link']						= 'Забыли пароль?';
 
 $lang['user_activation_code_sent_notice']		= 'На указанный Вами адрес электронной почты отправлено письмо с кодом активации.';
 $lang['user_activation_by_admin_notice']		= 'Ваша регистрация ожидает утверждения администратором.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Настройки ---------------------------------------------------------------------------------------------
 
@@ -119,6 +128,7 @@ $lang['user_mass_delete_error']							= 'Сначала надо выбрать 
 // Регистрация
 $lang['user_email_pass_missing']						= 'Поля Email или Пароль не заполнены.';
 $lang['user_email_exists']									= 'Указанный Email уже используется другим пользователем.';
+$lang['user_register_error']				   = 'We think you are a bot. If we are mistaken please accept our apologies.'; #translate
 $lang['user_register_reasons']							= 'Зарегистрируйтесь, чтобы получить доступ к закрытым разделам сайта. Вы сможете сохранять ваши Ваши данные, больше содержимого и меньше рекламы.';
 
 

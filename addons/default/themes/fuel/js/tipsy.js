@@ -200,3 +200,70 @@
     };
     
 })(jQuery);
+
+jQuery(document).ready(function($) {
+
+// Add that cool orange bkg to the input that has focus
+$('input, select').bind({
+	focusin: function() {
+		var wrapper = $(this).closest('.input');
+		$(wrapper).addClass('block-message pyro');
+	},
+	focusout: function() {
+		var wrapper = $(this).closest('.input');
+		$(wrapper).removeClass('block-message pyro');
+	}
+});
+
+$('input[name=password]').bind('keyup focus', function() {
+
+	$.post(base_url + 'index.php/ajax/confirm_database', {
+			server: $('input[name=hostname]').val(),
+            port: $('input[name=port]').val(),
+			username: $('input[name=username]').val(),
+			password: $('input[name=password]').val()
+		}, function(data) {
+			if (data.success == 'true') {
+				 $('#confirm_db').html(data.message).removeClass('block-message error').addClass('block-message success');
+			} else {
+				$('#confirm_db').html(data.message).removeClass('block-message success').addClass('block-message error');
+			}
+		}, 'json'
+	);
+
+});
+
+$('select#http_server').change(function(){
+	if ($(this).val() == 'apache_w') {
+		$.post(base_url + 'index.php/ajax/check_rewrite', '', function(data) {
+			if (data !== 'enabled') {
+				alert(data);
+			}
+		});
+	}
+});
+	
+// Tipsy
+$('.tooltip').tipsy({
+	gravity: $.fn.tipsy.autoNS,
+	fade: true,
+	html: true
+});
+
+$('.tooltip-s').tipsy({
+	gravity: 's',
+	fade: true,
+	html: true
+});
+
+$('.tooltip-e').tipsy({
+	gravity: 'e',
+	fade: true,
+	html: true
+});
+
+$('.tooltip-w').tipsy({
+	gravity: 'w',
+	fade: true,
+	html: true
+});

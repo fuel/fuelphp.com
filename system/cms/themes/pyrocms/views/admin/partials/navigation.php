@@ -41,13 +41,13 @@
 					$name = lang('cp_nav_'.$menu_item)!=''&&lang('cp_nav_'.$menu_item)!=NULL ? lang('cp_nav_'.$menu_item) : $menu_item;
 					$current = (($this->module_details && $this->module_details['menu'] == $menu_item) or $menu_item == $this->module);
 					$class = $current ? "top-link current" : "top-link";
-					echo anchor('#', $name, array('class' => $class));
+					echo anchor(current_url() . '#', $name, array('class' => $class));
 
 					echo '<ul>';
 					
 				// User has access to Users module only, no other users item
 				} 
-				elseif ($count == 1 AND ($this->module == 'users' OR $this->module == '') AND $menu_item == 'users') 
+				elseif ($count == 1 AND ($this->module == 'users') AND $menu_item == 'users')
 				{
 					echo '<li>' . anchor('admin/users', lang('cp_manage_users'), array('style' => 'font-weight: bold;', 'class' => $this->module == 'users' ? 'top-link no-submenu  current' : 'top-link no-submenu ')) . '</li>';
 				}
@@ -98,7 +98,7 @@
 		<?php endif; ?>
 
 		<?php if (array_key_exists('modules', $this->permissions) OR $this->current_user->group == 'admin'): ?>
-			<li><?php echo anchor('admin/modules', lang('cp_nav_addons'), 'class="last top-link no-submenu' . (($this->module == 'modules') ? ' current"' : '"'));?></li>
+			<li><?php echo anchor('admin/modules', lang('cp_nav_addons'), 'class="top-link no-submenu' . (($this->module == 'modules') ? ' current"' : '"'));?></li>
 		<?php endif; ?>
 		
 		<?php
@@ -108,7 +108,7 @@
 		?>
 			
 		<li>
-			<a href="#">Profile</a>
+			<a href="<?php echo site_url('admin/#'); ?>"><?php echo lang('global:profile'); ?></a>
 			<ul>
 				<li><?php if ($this->settings->enable_profiles) echo anchor('edit-profile', lang('cp_edit_profile_label')) ?></li>
 				<li><?php echo anchor('', lang('cp_view_frontend'), 'target="_blank"'); ?></li>

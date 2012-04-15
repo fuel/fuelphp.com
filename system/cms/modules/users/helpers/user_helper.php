@@ -39,9 +39,21 @@ function group_has_role($module, $role)
 }
 
 
-function role_or_die($module, $role)
+function role_or_die($module, $role, $redirect_to = 'admin', $message = '')
 {
-	group_has_role($module, $role) or show_error(lang('cp_access_denied'));
+	ci()->lang->load('admin');
+
+	if (ci()->input->is_ajax_request() AND ! group_has_role($module, $role))
+	{
+		echo json_encode(array('error' => ($message ? $message : lang('cp_access_denied')) ));
+		return FALSE;
+	}
+	elseif ( ! group_has_role($module, $role))
+	{
+		ci()->session->set_flashdata('error', ($message ? $message : lang('cp_access_denied')) );
+		redirect($redirect_to);
+	}
+	return TRUE;
 }
 
 // ------------------------------------------------------------------------
@@ -50,9 +62,11 @@ function role_or_die($module, $role)
  * Return a users display name based on settings
  *
  * @param int $user the users id
+ * @param string $linked if true a link to the profile page is returned, 
+ *                       if false it returns just the display name.
  * @return  string
  */
-function user_displayname($user)
+function user_displayname($user, $linked = TRUE)
 {
 	if (is_numeric($user))
 	{
@@ -75,11 +89,11 @@ function user_displayname($user)
 
 	$user_name = empty($user['display_name']) ? $user['username'] : $user['display_name'];
 
-	if (ci()->settings->enable_profiles)
+	if (ci()->settings->enable_profiles and $linked)
 	{
-		$user_name = anchor('user/' . $user['id'], $user_name);
+		$user_name = anchor('user/'.$user['id'], $user_name);
 	}
-
+	
 	$_users[$user['id']] = $user_name;
 
 	return $user_name;

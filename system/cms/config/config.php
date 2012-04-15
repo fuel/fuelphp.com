@@ -250,14 +250,15 @@ $config['encryption_key'] = "Jiu348^&H%fa";
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'pyrocms' . (ENVIRONMENT !== 'live' ? '_' . ENVIRONMENT : '');
+$config['sess_cookie_name']		= 'pyrocms' . (ENVIRONMENT !== 'production' ? '_' . ENVIRONMENT : '');
 $config['sess_expiration']		= 0;
 $config['sess_expire_on_close']	= TRUE;
 $config['sess_encrypt_cookie']	= TRUE;
 $config['sess_use_database']	= TRUE;
+// don't change anything but the 'ci_sessions' part of this. The MSM depends on the 'default_' prefix
 $config['sess_table_name']		= 'default_ci_sessions';
-$config['sess_match_ip']		= FALSE;
-$config['sess_match_useragent']	= FALSE;
+$config['sess_match_ip']		= TRUE;
+$config['sess_match_useragent']	= TRUE;
 $config['sess_time_to_update']	= 300;
 
 /*
@@ -272,7 +273,7 @@ $config['sess_time_to_update']	= 300;
 |
 */
 $config['cookie_prefix']	= "";
-$config['cookie_domain']	= (isset($_SERVER['SERVER_NAME']) AND $_SERVER['SERVER_NAME'] == 'localhost') ? '' : preg_replace('/^www\./', '', $_SERVER['SERVER_NAME']);
+$config['cookie_domain']	= ($_SERVER['SERVER_NAME'] == 'localhost') ? '' : $_SERVER['SERVER_NAME'];
 $config['cookie_path']		= BASE_URI;
 $config['cookie_secure']	= FALSE;
 
@@ -300,11 +301,11 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_expire' = The number in seconds the token should expire.
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_test_name';
-$config['csrf_cookie_name'] = 'csrf_cookie_name';
-$config['csrf_expire'] = 7200;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_protection'] 		= (bool) preg_match('@admin(\/.+)?$@', $_SERVER['REQUEST_URI']); // only turn it on for admin panel
+$config['csrf_token_name'] 		= 'csrf_hash_name';
+$config['csrf_cookie_name'] 	= 'csrf_cookie_name';
+$config['csrf_expire'] 			= 7200;
+$config['csrf_exclude_uris'] 	= array();
 
 /*
 |--------------------------------------------------------------------------
@@ -324,6 +325,18 @@ $config['csrf_exclude_uris'] = array();
 |
 */
 $config['compress_output'] = FALSE;
+
+/*
+|--------------------------------------------------------------------------
+| Minify
+|--------------------------------------------------------------------------
+|
+| Removes extra characters (usually unnecessary spaces) from your
+| output for faster page load speeds.  Makes your outputted HTML source
+| code less readable.
+|
+*/
+$config['minify_output'] = (ENVIRONMENT !== PYRO_DEVELOPMENT); // only do this on
 
 /*
 |--------------------------------------------------------------------------

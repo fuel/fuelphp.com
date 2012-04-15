@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['global:control-panel'] 						= 'Admin-Oberfläche';
+$lang['global:control-panel'] 			= 'Admin-Oberfläche';
+$lang['global:profile']					= 'Profile'; #translate
 
 $lang['title_label'] 					= 'Titel';
 $lang['name_label'] 					= 'Name';
@@ -14,13 +15,13 @@ $lang['dialog.confirm'] 				= 'Bestätigen';
 $lang['dialog.yes'] 					= 'Ja';
 $lang['dialog.no'] 						= 'Nein';
 
-$lang['global:select-none'] 					= '-- Keine --';
-$lang['global:select-all'] 					= '-- Alle --';
-$lang['global:select-any'] 					= '-- Eines --';
-$lang['global:select-pick']			 		= '-- Auswählen --';
+$lang['global:select-none'] 			= '-- Keine --';
+$lang['global:select-all'] 				= '-- Alle --';
+$lang['global:select-any'] 				= '-- Eines --';
+$lang['global:select-pick']			 	= '-- Auswählen --';
 
-$lang['global:check-none'] 					= 'Keine';
-$lang['global:check-all']						= 'Alle';
+$lang['global:check-none'] 				= 'Keine';
+$lang['global:check-all']				= 'Alle';
 
 $lang['operators.equal'] 				= 'Gleicht';
 $lang['operators.not_equal'] 			= 'Gleicht nicht';
@@ -43,6 +44,7 @@ $lang['success_label'] 					= 'Erfolgreich';
 
 $lang['login_title'] 					= 'Anmelden';
 $lang['cms_fatal_error'] 				= 'Schwerwiegender Fehler! Ist das CMS installiert?';
+$lang['global:demo_restrictions']       = 'Some features on this page have been disabled for the demo.'; #translate
 
 $lang['login_error_label'] 				= 'Anmeldefehler';
 $lang['forgot_password_label'] 			= 'Passwort vergessen ?';
@@ -60,10 +62,15 @@ $lang['approve_label']					= 'Bestätigen';
 $lang['unapprove_label']				= 'Bestätigung aufheben';
 $lang['publish_label'] 					= 'Veröffentlichen';
 $lang['upload_label'] 					= 'Hochladen';
-$lang['uninstall_label'] 				= 'Deinstallieren';
-$lang['install_label'] 					= 'Installieren';
-$lang['enable_label']					= 'Aktivieren';
-$lang['disable_label'] 					= 'Deaktivieren';
+$lang['global:uninstall'] 				= 'Deinstallieren';
+$lang['global:install'] 					= 'Installieren';
+$lang['global:enable']					= 'Aktivieren';
+$lang['global:disable'] 				= 'Deaktivieren';
+
+$lang['all_right_reserved']				= 'All Rights Reserved.';  #translate
+$lang['powered_by_pyrocms']				= 'Powered by PyroCMS';  #translate
+$lang['top_page']						= 'Top';  #translate
+$lang['back_to_top']					= 'Back to Top';  #translate
 
 $lang['global:shortcuts'] 				= 'Shortcuts'; #translate 
 $lang['global:description']				= 'Beschreibung'; 

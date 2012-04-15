@@ -1,5 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header']                  = 'Registracija';
 $lang['user_register_step1']                   = '<strong>Korak 1:</strong> Registracija';
 $lang['user_register_step2']                   = '<strong>Korak 2:</strong> Aktivacija';
@@ -66,11 +74,12 @@ $lang['user_lang']                             = 'Jezik';
 
 $lang['user_activation_code']                  = 'Koda aktivacije';
 
-$lang['user_reset_instructions']			   = 'Enter your email address or username'; #translate
+$lang['user_reset_instructions']			   = 'Vnesite vaše uporabniško ime ali email naslov';
 $lang['user_reset_password_link']              = 'Pozabili geslo?';
 
 $lang['user_activation_code_sent_notice']      = 'Email je bil poslan na naveden naslov s aktivacijsko kodo.';
 $lang['user_activation_by_admin_notice']       = 'Vaša registracija čaka na potrditev s strani administratorja.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Settings ---------------------------------------------------------------------------------------------
 
@@ -112,6 +121,7 @@ $lang['user_mass_delete_error']                = 'Najprej morate izbrati uporabn
 // Register
 $lang['user_email_pass_missing']               = 'Email ali geslo polje nista izpolnjena.';
 $lang['user_email_exists']                     = 'Email naslov katerega ste vnesli je že v uporabi pri drugem uporabniku.';
+$lang['user_register_error']				   = 'Mislimo da si robot. Če smo se zmotili sprejmite naše opravičilo in nas kontaktirajte.'; 
 $lang['user_register_reasons']                 = 'Pridružite se za dostop do zaklenjenih predelov strani. To pomeni da bodo vaše nastavitve shranjene več vsebine manj oglasov.';
 
 

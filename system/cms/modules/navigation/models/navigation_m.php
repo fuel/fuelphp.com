@@ -1,12 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Navigation model for the navigation module.
- *
- * @package 		PyroCMS
- * @subpackage 		Navigation Module
- * @category		Modules
- * @author			Phil Sturgeon - PyroCMS Development Team
- *
+ * 
+ * @author		Phil Sturgeon
+ * @author		PyroCMS Dev Team
+ * @package		PyroCMS\Core\Modules\Navigation\Models
  */
 class Navigation_m extends MY_Model
 {
@@ -82,13 +80,13 @@ class Navigation_m extends MY_Model
         	'link_type' 			=> $input['link_type'],
         	'url' 					=> isset($input['url']) ? $input['url'] : '',
         	'uri' 					=> isset($input['uri']) ? $input['uri'] : '',
-        	'module_name' 			=> $input['module_name'],
+        	'module_name' 			=> isset($input['module_name']) ? $input['module_name'] : '',
         	'page_id' 				=> (int) $input['page_id'],
         	'position' 				=> $position,
 			'target'				=> isset($input['target']) ? $input['target'] : '',
 			'class'					=> isset($input['class']) ? $input['class'] : '',
         	'navigation_group_id'	=> (int) $input['navigation_group_id'],
-			'restricted_to'			=> $input['restricted_to']
+			'restricted_to'			=> empty($input['restricted_to']) ? 0 : $input['restricted_to']
 		));
 
         return $this->db->insert_id();
@@ -116,7 +114,7 @@ class Navigation_m extends MY_Model
 			'target'				=> $input['target'],
 			'class'					=> $input['class'],
         	'navigation_group_id' 	=> (int) $input['navigation_group_id'],
-			'restricted_to'			=> $input['restricted_to']
+			'restricted_to'			=> empty($input['restricted_to']) ? 0 : $input['restricted_to']
 		);
 		
 		// if it was changed to a different group we need to reset the parent > child

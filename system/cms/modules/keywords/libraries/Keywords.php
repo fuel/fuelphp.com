@@ -1,24 +1,11 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
- * PyroCMS
- *
- * An open source CMS based on CodeIgniter
- *
- * @package		PyroCMS
- * @author		PyroCMS Dev Team
- * @license		http://pyrocms.com/legal/license
- * @link		http://pyrocms.com/
- * @since		Version 1.4
- */
-
-/**
  * Keywords Library
  *
  * @author		PyroCMS Dev Team
- * @package		PyroCMS
- * @subpackage	Libraries
- * @category	Keywords
+ * @package		PyroCMS\Core\Modules\Keywords\Libraries
  */
+
 class Keywords {
 
 	protected $ci;
@@ -57,6 +44,54 @@ class Keywords {
 		
 		return implode(', ', $keywords);
 	}
+	
+	/**
+	 * Get keywords
+	 *
+	 * Gets all the keywords as an array
+	 *
+	 * @param	string	$hash	The unique hash stored for a entry
+	 * @return	array
+	 */
+	public function get_array($hash)
+	{
+		$keywords = array();
+		
+		foreach (ci()->keyword_m->get_applied($hash) as $keyword)
+		{
+			$keywords[] = $keyword->name;
+		}
+		
+		return $keywords;
+	}
+	
+	/**
+	 * Get keywords as links
+	 *
+	 * Returns keyword list as processed links
+	 *
+	 * @param	string	$hash	The unique hash stored for a entry
+	 * @return	array
+	 */
+	public function get_links($hash, $path = '')
+	{
+		$keywords = ci()->keyword_m->get_applied($hash);
+		$i = 1;
+		
+		if (is_array($keywords))
+		{
+			$links = '';
+
+			foreach ($keywords as $keyword)
+			{
+				$links .= anchor(trim($path, '/').'/'.str_replace(' ', '-', $keyword->name), $keyword->name) . ($i < count($keywords) ? ', ' : '');
+				$i++;
+			}
+			return $links;
+		}
+		
+		return $keywords;
+	}
 
 	/**
 	 * Add Keyword
@@ -68,7 +103,7 @@ class Keywords {
 	 */
 	public function add($keyword)
 	{
-		return ci()->keyword_m->insert(array('name' => self::prep(singular($keyword))));
+		return ci()->keyword_m->insert(array('name' => self::prep($keyword)));
 	}
 
 	/**
@@ -103,7 +138,7 @@ class Keywords {
 		}
 		
 		// Remove the old keyword assignments if we're updating
-		if (is_string($old_hash))
+		if ($old_hash !== null)
 		{
 			ci()->db->where('hash', $old_hash)->get('keywords_applied');
 		}

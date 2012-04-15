@@ -1,5 +1,13 @@
 <?php
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header'] 			= 'Registrace';
 $lang['user_register_step1'] 			= '<strong>Krok 1:</strong> Registrace';
 $lang['user_register_step2'] 			= '<strong>Krok 2:</strong> Aktivace';
@@ -71,6 +79,7 @@ $lang['user_reset_password_link'] 		= 'Zapomněl/a jste heslo?';
 
 $lang['user_activation_code_sent_notice']	= 'E-mail s odkazem na obnovení hesla byl odeslán';
 $lang['user_activation_by_admin_notice'] 	= 'Vaše registrace čeká na schválení administrátorem.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Settings ---------------------------------------------------------------------------------------------
 
@@ -112,6 +121,7 @@ $lang['user_mass_delete_error'] 				= 'Je třeba nejprve vybrat uživatele.';
 // Register
 $lang['user_email_pass_missing'] 				= 'E-mail nebo heslo není vyplněno správně.';
 $lang['user_email_exists'] 					= 'Zvolený e-mail je již použit.';
+$lang['user_register_error']				   = 'We think you are a bot. If we are mistaken please accept our apologies.'; #translate
 $lang['user_register_reasons'] 					= 'Registrujte se a získejte přístup k částem webu, které jsou vám zatím skryty. Budeme si pamatovat vaše nastavení, uvidíte více obsahu a méně reklamy.';
 
 

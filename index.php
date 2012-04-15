@@ -37,7 +37,7 @@ define('ENVIRONMENT', (isset($_SERVER['PYRO_ENV']) ? $_SERVER['PYRO_ENV'] : PYRO
 	switch (ENVIRONMENT)
 	{
 		case PYRO_DEVELOPMENT:
-			error_reporting(E_ALL);
+			error_reporting(-1);
 			ini_set('display_errors', 1);
 		break;
 
@@ -70,9 +70,8 @@ define('ENVIRONMENT', (isset($_SERVER['PYRO_ENV']) ? $_SERVER['PYRO_ENV'] : PYRO
 	// PHP 5.3 will BITCH without this
 	if(ini_get('date.timezone') == '')
 	{
-		date_default_timezone_set('GMT');
+		date_default_timezone_set('UTC');
 	}
-
 
 /*
 |---------------------------------------------------------------
@@ -211,7 +210,7 @@ define('ENVIRONMENT', (isset($_SERVER['PYRO_ENV']) ? $_SERVER['PYRO_ENV'] : PYRO
 	define('BASEPATH', str_replace("\\", "/", $system_path));
 
 	// The site slug: (example.com)
-	define('SITE_SLUG', preg_replace('/^www\./', '', $_SERVER['SERVER_NAME']));
+	define('SITE_DOMAIN', $_SERVER['HTTP_HOST']);
 
  	// This only allows you to change the name. ADDONPATH should still be used in the app
 	define('ADDON_FOLDER', $addon_folder.'/');
@@ -241,6 +240,18 @@ define('ENVIRONMENT', (isset($_SERVER['PYRO_ENV']) ? $_SERVER['PYRO_ENV'] : PYRO
 
 	// Path to the views folder
 	define ('VIEWPATH', APPPATH.'views/' );
+	
+/*
+ *---------------------------------------------------------------
+ * DEMO
+ *---------------------------------------------------------------
+ *
+ * Should PyroCMS run as a demo, meaning no destructive actions
+ * can be taken such as removing admins or changing passwords?
+ *
+ */
+
+    define('PYRO_DEMO', (file_exists(FCPATH.'DEMO')));
 
 /*
  * --------------------------------------------------------------------

@@ -87,15 +87,6 @@ $lang['settings_ga_tracking_desc']                = 'Irašykite Google Analytic 
 $lang['settings_twitter_username']                = 'Vartotojas';
 $lang['settings_twitter_username_desc']            = 'Twitterio vartotojas.';
 
-$lang['settings_twitter_consumer_key']            = 'Consumer raktas';
-$lang['settings_twitter_consumer_key_desc']        = 'Twitterio consumer raktas.';
-
-$lang['settings_twitter_consumer_key_secret']    = 'Consumer Key Secret';
-$lang['settings_twitter_consumer_key_secret_desc'] = 'Twitter consumer key secret.';
-
-$lang['settings_twitter_blog']                    = 'Twitterio ir Blog\'o integracija.';
-$lang['settings_twitter_blog_desc']                = 'Ar noretumėte kad nuorodos i naujus blogo irašai eitu tiesiai į Twitter?';
-
 $lang['settings_twitter_feed_count']            = 'Parašu kiekis';
 $lang['settings_twitter_feed_count_desc']        = 'Kiek įrašų turi būti gražinta į Twitterio bloką?';
 
@@ -113,6 +104,15 @@ $lang['settings_moderate_comments_desc']        = 'Priverčia komentarus būti p
 
 $lang['settings_version']                        = 'Versija';
 $lang['settings_version_desc']                    = '';
+
+$lang['settings_ckeditor_config']               = 'CKEditor Config'; #translate
+$lang['settings_ckeditor_config_desc']          = 'You can find a list of valid configuration items in <a target=\"_blank\" href=\"http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html\">CKEditor\'s documentation.</a>'; #translate
+
+$lang['settings_enable_registration']           = 'Enable user registration'; #translate
+$lang['settings_enable_registration_desc']      = 'Allow users to register in your site.'; #translate
+
+$lang['settings_cdn_domain']                    = 'CDN Domain'; #translate
+$lang['settings_cdn_domain_desc']               = 'CDN domains allow you to offload static content to various edge servers, like Amazon CloudFront or MaxCDN.'; #translate
 
 #section titles
 $lang['settings_section_general']                = 'Bendri';

@@ -1,23 +1,21 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-
 /**
- *
- * @package  	PyroCMS
- * @subpackage  Categories
- * @category  	Module
+ * 
+ * @author 		PyroCMS Dev Team
+ * @package 	PyroCMS\Core\Modules\Blog\Controllers
  */
-class Admin extends Admin_Controller {
-
+class Admin extends Admin_Controller
+{
 	/**
 	 * The current active section
-	 * @access protected
+	 *
 	 * @var string
 	 */
 	protected $section = 'posts';
 
 	/**
 	 * Array that contains the validation rules
-	 * @access protected
+	 *
 	 * @var array
 	 */
 	protected $validation_rules = array(
@@ -84,32 +82,31 @@ class Admin extends Admin_Controller {
 
 	/**
 	 * The constructor
-	 * @access public
-	 * @return void
 	 */
 	public function __construct()
 	{
 		parent::__construct();
-
+		
 		$this->load->model(array('blog_m', 'blog_categories_m'));
 		$this->lang->load(array('blog', 'categories'));
 		
 		$this->load->library(array('keywords/keywords', 'form_validation'));
 
 		// Date ranges for select boxes
-		$this->data->hours = array_combine($hours = range(0, 23), $hours);
-		$this->data->minutes = array_combine($minutes = range(0, 59), $minutes);
+		$this->template
+			->set('hours', array_combine($hours = range(0, 23), $hours))
+			->set('minutes', array_combine($minutes = range(0, 59), $minutes))
+		;
 
-		$this->data->categories = array();
+		$_categories = array();
 		if ($categories = $this->blog_categories_m->order_by('title')->get_all())
 		{
 			foreach ($categories as $category)
 			{
-				$this->data->categories[$category->id] = $category->title;
+				$_categories[$category->id] = $category->title;
 			}
 		}
-
-		$this->template->set_partial('shortcuts', 'admin/partials/shortcuts');
+		$this->template->set('categories', $_categories);
 	}
 
 	/**
@@ -141,17 +138,19 @@ class Admin extends Admin_Controller {
 
 		$this->template
 			->title($this->module_details['name'])
-			->append_metadata(js('admin/filter.js'))
+			->append_js('admin/filter.js')
 			->set('pagination', $pagination)
 			->set('blog', $blog);
 
-		$this->input->is_ajax_request() ? $this->template->build('admin/tables/posts', $this->data) : $this->template->build('admin/index', $this->data);
+		$this->input->is_ajax_request()
+			? $this->template->build('admin/tables/posts')
+			: $this->template->build('admin/index');
 
 	}
 
 	/**
 	 * Create new post
-	 * @access public
+	 *
 	 * @return void
 	 */
 	public function create()
@@ -176,7 +175,7 @@ class Admin extends Admin_Controller {
 				role_or_die('blog', 'put_live');
 			}
 
-			$id = $this->blog_m->insert(array(
+			if ($id = $this->blog_m->insert(array(
 				'title'				=> $this->input->post('title'),
 				'slug'				=> $this->input->post('slug'),
 				'category_id'		=> $this->input->post('category_id'),
@@ -188,13 +187,18 @@ class Admin extends Admin_Controller {
 				'comments_enabled'	=> $this->input->post('comments_enabled'),
 				'author_id'			=> $this->current_user->id,
 				'type'				=> $this->input->post('type'),
-				'parsed'			=> ($this->input->post('type') == 'markdown') ? parse_markdown($this->input->post('body')) : ''
-			));
-
-			if ($id)
+				'parsed'			=> ($this->input->post('type') == 'markdown') ? parse_markdown($this->input->post('body')) : '',
+			)))
 			{
 				$this->pyrocache->delete_all('blog_m');
 				$this->session->set_flashdata('success', sprintf($this->lang->line('blog_post_add_success'), $this->input->post('title')));
+				
+				// They are trying to put this live
+				if ($this->input->post('status') == 'live')
+				{
+					// Fire an event, we're posting a new blog!
+					Events::trigger('blog_article_published', $id);
+				}
 			}
 			else
 			{
@@ -219,9 +223,9 @@ class Admin extends Admin_Controller {
 		$this->template
 			->title($this->module_details['name'], lang('blog_create_title'))
 			->append_metadata($this->load->view('fragments/wysiwyg', $this->data, TRUE))
-			->append_metadata(js('jquery/jquery.tagsinput.min.js'))
-			->append_metadata(js('blog_form.js', 'blog'))
-			->append_metadata(css('jquery/jquery.tagsinput.css'))
+			->append_js('jquery/jquery.tagsinput.js')
+			->append_js('module::blog_form.js')
+			->append_css('jquery/jquery.tagsinput.css')
 			->set('post', $post)
 			->build('admin/form');
 	}
@@ -293,16 +297,12 @@ class Admin extends Admin_Controller {
 			{
 				$this->session->set_flashdata(array('success' => sprintf(lang('blog_edit_success'), $this->input->post('title'))));
 
-				// The twitter module is here, and enabled!
-//				if ($this->settings->item('twitter_blog') == 1 && ($post->status != 'live' && $this->input->post('status') == 'live'))
-//				{
-//					$url = shorten_url('blog/'.$date[2].'/'.str_pad($date[1], 2, '0', STR_PAD_LEFT).'/'.url_title($this->input->post('title')));
-//					$this->load->model('twitter/twitter_m');
-//					if ( ! $this->twitter_m->update(sprintf($this->lang->line('blog_twitter_posted'), $this->input->post('title'), $url)))
-//					{
-//						$this->session->set_flashdata('error', lang('blog_twitter_error') . ": " . $this->twitter->last_error['error']);
-//					}
-//				}
+				// They are trying to put this live
+				if ($post->status != 'live' and $this->input->post('status') == 'live')
+				{
+					// Fire an event, we're posting a new blog!
+					Events::trigger('blog_article_published', $id);
+				}
 			}
 			
 			else
@@ -328,9 +328,9 @@ class Admin extends Admin_Controller {
 		$this->template
 			->title($this->module_details['name'], sprintf(lang('blog_edit_title'), $post->title))
 			->append_metadata($this->load->view('fragments/wysiwyg', $this->data, TRUE))
-			->append_metadata(js('jquery/jquery.tagsinput.min.js'))
-			->append_metadata(js('blog_form.js', 'blog'))
-			->append_metadata(css('jquery/jquery.tagsinput.css'))
+			->append_js('jquery/jquery.tagsinput.js')
+			->append_js('module::blog_form.js')
+			->append_css('jquery/jquery.tagsinput.css')
 			->set('post', $post)
 			->build('admin/form');
 	}
@@ -361,18 +361,16 @@ class Admin extends Admin_Controller {
 		switch ($this->input->post('btnAction'))
 		{
 			case 'publish':
-				role_or_die('blog', 'put_live');
 				$this->publish();
-				break;
+			break;
 			
 			case 'delete':
-				role_or_die('blog', 'delete_live');
 				$this->delete();
-				break;
+			break;
 			
 			default:
 				redirect('admin/blog');
-				break;
+			break;
 		}
 	}
 
@@ -438,6 +436,10 @@ class Admin extends Admin_Controller {
 	 */
 	public function delete($id = 0)
 	{
+		$this->load->model('comments/comments_m');
+
+		role_or_die('blog', 'delete_live');
+
 		// Delete one
 		$ids = ($id) ? array($id) : $this->input->post('action_to');
 
@@ -445,18 +447,26 @@ class Admin extends Admin_Controller {
 		if ( ! empty($ids))
 		{
 			$post_titles = array();
+			$deleted_ids = array();
 			foreach ($ids as $id)
 			{
 				// Get the current page so we can grab the id too
 				if ($post = $this->blog_m->get($id))
 				{
-					$this->blog_m->delete($id);
+					if ($this->blog_m->delete($id))
+					{
+						$this->comments_m->where('module', 'blog')->delete_by('module_id', $id);
 
-					// Wipe cache for this model, the content has changed
-					$this->pyrocache->delete('blog_m');
-					$post_titles[] = $post->title;
+						// Wipe cache for this model, the content has changed
+						$this->pyrocache->delete('blog_m');
+						$post_titles[] = $post->title;
+						$deleted_ids[] = $id;
+					}
 				}
 			}
+			
+			// Fire an event. We've deleted one or more blog posts.
+			Events::trigger('blog_article_deleted', $deleted_ids);
 		}
 
 		// Some pages have been deleted

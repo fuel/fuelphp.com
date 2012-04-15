@@ -1,5 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header']                  = 'Registration';
 $lang['user_register_step1']                   = '<strong>Žingsnis 1:</strong> Registracija';
 $lang['user_register_step2']                   = '<strong>Žingsnis 2:</strong> Aktyvacija';
@@ -71,6 +79,7 @@ $lang['user_reset_password_link']              = 'Pamiršote slaptažodį?';
 
 $lang['user_activation_code_sent_notice']      = 'Laiškas buvo išsiųsta su jūsų aktyvacijos kodu.';
 $lang['user_activation_by_admin_notice']       = 'Jūsų registracija laukia patvirtinimo administratoriaus.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Settings ---------------------------------------------------------------------------------------------
 
@@ -112,6 +121,7 @@ $lang['user_mass_delete_error']                = 'Pirmiau reikia pasirinkti vart
 // Register
 $lang['user_email_pass_missing']               = 'Elektroninio pašto ar slaptažodžio laukai nėra užpildyti.';
 $lang['user_email_exists']                     = 'Pašto adresas, kurį pasirinkote jau naudojamas kito vartotojo.';
+$lang['user_register_error']				   = 'We think you are a bot. If we are mistaken please accept our apologies.'; #translate
 $lang['user_register_reasons']                 = 'Join up to access special areas normally restricted. This means your settings will be remembered, more content and less ads.';
 
 

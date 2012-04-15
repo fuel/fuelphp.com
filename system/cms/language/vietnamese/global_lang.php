@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['global:control-panel'] 			= 'Quản trị hệ thống';
+$lang['global:profile']					= 'Profile'; #translate
 
 $lang['title_label'] 					= 'Tiêu đề';
 $lang['name_label'] 					= 'Tên';
@@ -61,11 +62,16 @@ $lang['approve_label']					= 'Chấp thuận';
 $lang['unapprove_label']				= 'Không chấp thuận';
 $lang['publish_label'] 					= 'Xuất bản';
 $lang['upload_label'] 					= 'Tải lên';
-$lang['uninstall_label'] 				= 'Gỡ cài đặt';
-$lang['install_label'] 					= 'Cài đặt';
-$lang['enable_label']					= 'Hoạt động';
-$lang['disable_label'] 					= 'Ngừng hoạt động';
-$lang['upgrade_label'] 					= 'Nâng cấp';
+$lang['global:uninstall'] 				= 'Gỡ cài đặt';
+$lang['global:install'] 					= 'Cài đặt';
+$lang['global:enable']					= 'Hoạt động';
+$lang['global:disable'] 					= 'Ngừng hoạt động';
+$lang['global:upgrade'] 					= 'Nâng cấp';
+
+$lang['all_right_reserved']				= 'All Rights Reserved.';  #translate
+$lang['powered_by_pyrocms']				= 'Powered by PyroCMS';  #translate
+$lang['top_page']						= 'Top';  #translate
+$lang['back_to_top']					= 'Back to Top';  #translate
 
 $lang['global:filters'] 				= 'Lọc';
 $lang['global:shortcuts'] 				= 'Shortcuts';

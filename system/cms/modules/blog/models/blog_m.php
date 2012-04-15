@@ -1,14 +1,14 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Blog_m extends MY_Model {
-
+class Blog_m extends MY_Model
+{
 	protected $_table = 'blog';
 
 	function get_all()
 	{
 		$this->db->select('blog.*, blog_categories.title AS category_title, blog_categories.slug AS category_slug, profiles.display_name')
 			->join('blog_categories', 'blog.category_id = blog_categories.id', 'left')
-			->join('profiles', 'profiles.user_id = blog.author_id');
+			->join('profiles', 'profiles.user_id = blog.author_id', 'left');
 
 		$this->db->order_by('created_on', 'DESC');
 
@@ -18,7 +18,7 @@ class Blog_m extends MY_Model {
 	function get($id)
 	{
 		return $this->db->select('blog.*, profiles.display_name')
-					->join('profiles', 'profiles.user_id = blog.author_id')
+					->join('profiles', 'profiles.user_id = blog.author_id', 'left')
 					->where(array('blog.id' => $id))
 					->get('blog')
 					->row();
@@ -27,7 +27,7 @@ class Blog_m extends MY_Model {
 	public function get_by($key, $value = '')
 	{
 		$this->db->select('blog.*, profiles.display_name')
-			->join('profiles', 'profiles.user_id = blog.author_id');
+			->join('profiles', 'profiles.user_id = blog.author_id', 'left');
 			
 		if (is_array($key))
 		{
@@ -93,6 +93,31 @@ class Blog_m extends MY_Model {
 			$this->db->limit($params['limit']);
 
 		return $this->get_all();
+	}
+	
+	public function count_tagged_by($tag, $params)
+	{
+		return $this->select('*')
+			->from('blog')
+			->join('keywords_applied', 'keywords_applied.hash = blog.keywords')
+			->join('keywords', 'keywords.id = keywords_applied.keyword_id')
+			->where('keywords.name', str_replace('-', ' ', $tag))
+			->where($params)
+			->count_all_results();
+	}
+	
+	public function get_tagged_by($tag, $params)
+	{
+		return $this->db->select('blog.*, blog.title title, blog.slug slug, blog_categories.title category_title, blog_categories.slug category_slug, profiles.display_name')
+			->from('blog')
+			->join('keywords_applied', 'keywords_applied.hash = blog.keywords')
+			->join('keywords', 'keywords.id = keywords_applied.keyword_id')
+			->join('blog_categories', 'blog_categories.id = blog.category_id', 'left')
+			->join('profiles', 'profiles.user_id = blog.author_id', 'left')
+			->where('keywords.name', str_replace('-', ' ', $tag))
+			->where($params)
+			->get()
+			->result();
 	}
 
 	function count_by($params = array())

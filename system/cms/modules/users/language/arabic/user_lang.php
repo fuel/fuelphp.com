@@ -1,5 +1,13 @@
 <?php
 
+$lang['user_add_field']                        	= 'Add User Profile Field'; #translate
+$lang['user_profile_delete_success']           	= 'User profile field deleted successfully'; #translate
+$lang['user_profile_delete_failure']            = 'There was a problem with deleting your user profile field'; #translate
+$lang['profile_user_basic_data_label']  		= 'Basic Data'; #translate
+$lang['profile_company']         	  			= 'Company'; #translate
+$lang['profile_updated_on']           			= 'Updated On'; #translate
+$lang['user_profile_fields_label']	 		 	= 'Profile Fields'; #translate`
+
 $lang['user_register_header'] 			= 'الإشتراك';
 $lang['user_register_step1'] 			= '<strong>الخطوة الأولى:</strong> الإشتراك';
 $lang['user_register_step2'] 			= '<strong>الخطوة الثانية:</strong> التفعيل';
@@ -71,6 +79,7 @@ $lang['user_reset_password_link'] 		= 'نسيت كلمة السرّ الخاصة
 
 $lang['user_activation_code_sent_notice']	= 'أرسلت رسالة إليك تحتوي رمز التفعيل.';
 $lang['user_activation_by_admin_notice'] 	= 'تسجيلك في الموقع بانتظار موافقة الإدارة.';
+$lang['user_registration_disabled']            = 'Sorry, but the user registration is disabled.'; #translate
 
 // -- Settings ---------------------------------------------------------------------------------------------
 
@@ -112,6 +121,7 @@ $lang['user_mass_delete_error'] 				= 'يجب أن تحدد المستخدمين
 // Register
 $lang['user_email_pass_missing'] 				= 'حقل عنوان البريد الإلكتروني أو كلمة السرّ غير مكتمل.';
 $lang['user_email_exists'] 						= 'عنوان البريد الإلكتروني الذي اخترته يستخدمه مسبقاً مستخدم آخر.';
+$lang['user_register_error']				   = 'نعتقد أنك روبوت. إن كنا مخطئين فاقبل اعتذارنا.';
 $lang['user_register_reasons'] 					= 'اشترك معنا للوصول إلى الأقسام المحجوبة من الموقع. اشتراكك يتيح لك حفظ إعداداتك والمزيد من المُحتوى والقليل من الدعائيات.';
 
 
