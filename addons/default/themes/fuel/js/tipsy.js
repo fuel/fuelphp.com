@@ -267,3 +267,5 @@ $('.tooltip-w').tipsy({
 	fade: true,
 	html: true
 });
+
+});
