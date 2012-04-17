@@ -2,7 +2,7 @@
 <section class="forum">
 	<?php echo $template['partials']['search_form']; ?>
 	
-	<table class="forum-table" border="0" cellspacing="0">
+	<table class="forum-table" border="0" cellspacing="0" style="clear: both;">
 		<thead>
 	  		<tr class="header">
 	    		<th class="forum-name"><h3><?php echo $forum->title;?></h3></th>
@@ -20,7 +20,7 @@
 	<?php else: ?>
 		<?php foreach ($forum->topics as $topic): ?>
 			<tr>
-				<td  style="border-bottom: 1px solid #eeeeee;padding: 15px 0;" class="forum-name">
+				<td  style="border-bottom: 1px solid #eeeeee;padding: 15px;" class="forum-name">
 					<?php echo $topic->sticky ? '<span class="sticky">' . lang('forums.sticky_label') . '</span>' : ''; ?>
 					<div class="title"><?php echo anchor('forums/topics/view/'.$topic->id, $topic->title);?></div>
 					<div class="author-label">
@@ -28,9 +28,9 @@
 						<?php echo user_displayname($topic->author_id); ?>
 					</div>
 				</td>
-				<td style="border-bottom: 1px solid #eeeeee;padding: 15px 0;" class="forum-topic"><?php echo $topic->post_count;?></td>
-				<td  style="border-bottom: 1px solid #eeeeee;padding: 15px 0;" class="forum-replies"><?php echo $topic->view_count?></td>
-				<td  style="border-bottom: 1px solid #eeeeee;padding: 15px 0;" class="forum-info">
+				<td style="border-bottom: 1px solid #eeeeee;padding: 15px;" class="forum-topic"><?php echo $topic->post_count;?></td>
+				<td  style="border-bottom: 1px solid #eeeeee;padding: 15px;" class="forum-replies"><?php echo $topic->view_count?></td>
+				<td  style="border-bottom: 1px solid #eeeeee;padding: 15px;" class="forum-info">
 					<?php if (!empty($topic->last_post)):?>
 						<div class="last-date">
 							<?php echo lang('forums.posted_label'); ?>

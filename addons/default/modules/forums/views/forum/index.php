@@ -11,7 +11,7 @@
 <?php foreach($forum_categories as $category): ?>
 <?php if($category->forums): ?>
 	
-	<table class="forum-table" border="0" cellspacing="0">
+	<table class="forum-table" border="0" cellspacing="0" style="clear: both;">
 		<thead>
 	  		<tr class="header">
 	    		<th class="forum-name"><h3><?php echo $category->title;?></h3></th>
@@ -20,7 +20,6 @@
 	    		<th class="forum-info"><h6><?php echo lang('forums.last_post_header'); ?></h6></th>
 	  		</tr>
 		</thead>
-		<td>&nbsp;</td>
 		<tbody>
 			<?php if(!empty($category->forums)): ?>
   			<?php foreach($category->forums as $forum): ?>

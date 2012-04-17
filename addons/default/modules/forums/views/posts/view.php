@@ -12,19 +12,19 @@
 	
 	<?php echo $template['partials']['search_form']; ?>
 	
-<table class="forum-table topic-table" border="0" cellspacing="0">
+<table class="forum-table topic-table" border="0" cellspacing="0" style="clear: both;">
 	<thead>
 		<tr>
 			<th colspan="4" class="header">
 				<h3>Topic: <?php echo $topic->title;?></h3>
+	
+				<div class="mod_buttons">
+					<?php echo $move_form; ?>
+					<?php echo lock_button($topic); ?>
+				</div>
 			</th>
 		</tr>
 	</thead>
-	
-	<div class="mod_buttons">
-		<?php echo $move_form; ?>
-		<?php echo lock_button($topic); ?>
-	</div>
 	
 	<tbody>
   		<?php 
@@ -50,7 +50,6 @@
 				</td>
 			<?php endif; ?>
   		</tr>
- 		<td>&nbsp;</td>
   		<tr>
     		<td class="authorinfo">
 				<div class="authorname">
@@ -84,7 +83,6 @@
 				<?php echo delete_button($post); ?>
 			</td>
 		</tr>
-		<td>&nbsp;</td>
   		<?php
 			$i++;
 			endforeach; ?>
