@@ -22,7 +22,7 @@
 			<tr>
 				<td  style="border-bottom: 1px solid #eeeeee;padding: 15px 0;" class="forum-name">
 					<?php echo $topic->sticky ? '<span class="sticky">' . lang('forums.sticky_label') . '</span>' : ''; ?>
-					<div class="title"><h4><?php echo anchor('forums/topics/view/'.$topic->id, $topic->title);?></h4></div>
+					<div class="title"><?php echo anchor('forums/topics/view/'.$topic->id, $topic->title);?></div>
 					<div class="author-label">
 						<?php echo lang('forums.author_label'); ?>
 						<?php echo user_displayname($topic->author_id); ?>
