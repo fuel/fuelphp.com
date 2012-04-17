@@ -25,24 +25,24 @@
 			<?php if(!empty($category->forums)): ?>
   			<?php foreach($category->forums as $forum): ?>
 				<tr>
-					<td style="border-bottom: 1px solid #eeeeee;padding: 15px 0;" class="forum-name">
+					<td style="border-bottom: 1px solid #eeeeee;padding: 15px;" class="forum-name">
 						<div class="title">
-							<h4><?php echo anchor('forums/view/'.$forum->id, $forum->title);?></h4>
+							<?php echo anchor('forums/view/'.$forum->id, $forum->title);?>
 						</div>
 						<div class="description">
 							<?php echo $forum->description;?>
 						</div>
 					</td>
 					
-					<td style="border-bottom: 1px solid #eeeeee;padding: 15px 0;" class="forum-topic">
+					<td style="border-bottom: 1px solid #eeeeee;padding: 15px;" class="forum-topic">
 						<?php echo $forum->topic_count; ?>
 					</td>
 					
-					<td style="border-bottom: 1px solid #eeeeee; padding: 15px 0;" class="forum-replies">
+					<td style="border-bottom: 1px solid #eeeeee; padding: 15px;" class="forum-replies">
 						<?php echo $forum->reply_count; ?>
 					</td>
 	
-					<td style="border-bottom: 1px solid #eeeeee; padding: 15px 0;" class="forum-info">
+					<td style="border-bottom: 1px solid #eeeeee; padding: 15px;" class="forum-info">
 						<?php if(isset($forum->last_post->title)):?>
 							<div class="last-title">
 								<?php echo anchor('forums/posts/view_reply/'.$forum->last_post->id, $forum->last_post->title); ?>
