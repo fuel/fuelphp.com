@@ -33,7 +33,7 @@
   		?>
 		<tr class="postinfo header-alt">
 			<td width="20%" class="forum-name">
-				<h5><?php echo lang('forums.posted_label') . forum_date($post->created_on);?></h5>
+				<?php echo lang('forums.posted_label') . forum_date($post->created_on);?>
 			</td>
   
   			<td width="50%">&nbsp;</td>
@@ -89,7 +89,7 @@
 	</tbody>
 </table>
 	
-	<hr>
+	<hr style="clear: both;" />
 	
 	<?php echo $pagination['links']; ?>
 
