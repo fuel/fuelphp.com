@@ -23,7 +23,7 @@ ol li { list-style-type: decimal; }
 
 em { font-style: italic; }
 strong { font-weight: bold; }
-pre, code { font-family: "Monaco"; color: #7d7d7d; text-shadow: 1px 1px 0px #ffffff; font-size: 11px; margin: 0 0 25px 0; }
+pre, code { font-family: "Monaco", "Droid Sans Mono", monospace; color: #7d7d7d; text-shadow: 1px 1px 0px #ffffff; font-size: 11px; margin: 0 0 25px 0; }
 sup { font-size: xx-small; vertical-align: top; }
 sub { font-size: xx-small; vertical-align: bottom; }
 acronym, abbr { font-weight: bold; text-transform: uppercase; font-size: 12px; }
