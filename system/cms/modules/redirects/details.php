@@ -17,6 +17,7 @@ class Module_Redirects extends Module {
 				'en' => 'Redirects',
 				'ar' => 'التوجيهات',
 				'br' => 'Redirecionamentos',
+				'pt' => 'Redirecionamentos',
 				'cs' => 'Přesměrování',
 				'da' => 'Omadressering',
 				'el' => 'Ανακατευθύνσεις',
@@ -32,12 +33,14 @@ class Module_Redirects extends Module {
 				'sl' => 'Preusmeritve',
 				'zh' => '轉址',
 				'hu' => 'Átirányítások',
+				'th' => 'เปลี่ยนเส้นทาง',
                                 'se' => 'Omdirigeringar'
 			),
 			'description' => array(
 				'en' => 'Redirect from one URL to another.',
 				'ar' => 'التوجيه من رابط URL إلى آخر.',
 				'br' => 'Redirecionamento de uma URL para outra.',
+				'pt' => 'Redirecionamentos de uma URL para outra.',
 				'cs' => 'Přesměrujte z jedné adresy URL na jinou.',
 				'da' => 'Omadresser fra en URL til en anden.',
 				'el' => 'Ανακατευθείνετε μια διεύθυνση URL σε μια άλλη',
@@ -53,6 +56,7 @@ class Module_Redirects extends Module {
 				'sl' => 'Preusmeritev iz enega URL naslova na drugega',
 				'zh' => '將網址轉址、重新定向。',
 				'hu' => 'Egy URL átirányítása egy másikra.',
+				'th' => 'เปลี่ยนเส้นทางจากที่หนึ่งไปยังอีกที่หนึ่ง',
                                 'se' => 'Omdirigera från en URL till en annan.'
 			),
 			'frontend' => false,
@@ -75,9 +79,10 @@ class Module_Redirects extends Module {
 
 		$tables = array(
 			'redirects' => array(
-				'id' => array('type' => 'INT', 'constraint' => 11, 'auto_increment' => true, 'primary' => true,),
-				'from' => array('type' => 'VARCHAR', 'constraint' => 250, 'key' => 'request'),
-				'to' => array('type' => 'VARCHAR', 'constraint' => 250,),
+				'id' => array('type' => 'int', 'constraint' => 11, 'auto_increment' => true, 'primary' => true,),
+				'from' => array('type' => 'varchar', 'constraint' => 250, 'key' => 'request'),
+				'to' => array('type' => 'varchar', 'constraint' => 250,),
+				'type' => array('type' => 'int','constraint' => 3,'default' => 302),
 			),
 		);
 

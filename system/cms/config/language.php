@@ -100,6 +100,13 @@ $config['supported_languages'] = array(
         'codes'        => array('plk', 'polish', 'pl_PL'),
         'ckeditor'    => NULL
     ),
+	'pt' => array(
+		'name'		=> 'Portugu&ecirc;s de Portugal',
+		'folder'	=> 'portuguese',
+		'direction'	=> 'ltr',
+		'codes'		=> array('ptb', 'portuguese-portugal', 'pt_PT'),
+		'ckeditor'	=> 'pt-pt'
+	),
     'br' => array(
         'name'        => 'Portugu&ecirc;s do Brasil',
         'folder'    => 'brazilian',
@@ -162,6 +169,13 @@ $config['supported_languages'] = array(
         'direction'     => 'ltr',
         'codes'         => array('hu', 'hu_HU'),
         'ckeditor'      => NULL
+    ),
+    'th' => array(
+        'name'        => 'ไทย',
+        'folder'    => 'thai',
+        'direction'    => 'ltr',
+        'codes'        => array('th', 'thai', 'th_TH'),
+        'ckeditor'    => NULL
     )
 );
 

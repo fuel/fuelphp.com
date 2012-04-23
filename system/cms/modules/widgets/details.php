@@ -17,6 +17,7 @@ class Module_Widgets extends Module {
 				'en' => 'Widgets',
 				'ar' => 'الودجت',
 				'br' => 'Widgets',
+				'pt' => 'Widgets',
 				'cs' => 'Widgety',
 				'de' => 'Widgets',
 				'el' => 'Widgets',
@@ -31,12 +32,14 @@ class Module_Widgets extends Module {
 				'sl' => 'Vtičniki',
 				'zh' => '小組件',
 				'hu' => 'Widget-ek',
+				'th' => 'วิดเจ็ต',
                                 'se' => 'Widgetar'
 			),
 			'description' => array(
 				'en' => 'Manage small sections of self-contained logic in blocks or "Widgets".',
 				'ar' => 'إدارة أقسام صغيرة من البرمجيات في مساحات الموقع أو ما يُسمّى بالـ"وِدْجِتْ".',
 				'br' => 'Gerenciar pequenas seções de conteúdos em bloco conhecidos como "Widgets".',
+				'pt' => 'Gerir pequenas secções de conteúdos em bloco conhecidos como "Widgets".',
 				'cs' => 'Spravujte malé funkční části webu neboli "Widgety".',
 				'da' => 'Håndter små sektioner af selv-opretholdt logik i blokke eller "Widgets".',
 				'de' => 'Verwaltet kleine, eigentständige Bereiche, genannt "Widgets".',
@@ -52,6 +55,7 @@ class Module_Widgets extends Module {
 				'sl' => 'Urejanje manjših delov blokov strani ti. Vtičniki (Widgets)',
 				'zh' => '可將小段的程式碼透過小組件來管理。即所謂 "Widgets"，或稱為小工具、部件。',
 				'hu' => 'Önálló kis logikai tömbök vagy widget-ek kezelése.',
+				'th' => 'จัดการส่วนเล็ก ๆ ในรูปแบบของตัวเองในบล็อกหรือวิดเจ็ต',
                                 'se' => 'Hantera små sektioner med egen logik och innehåll på olika delar av webbplatsen.'
 			),
 			'frontend' => false,

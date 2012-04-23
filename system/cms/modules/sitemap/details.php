@@ -17,6 +17,7 @@ class Module_Sitemap extends Module {
 				'en' => 'Sitemap',
 				'ar' => 'خريطة الموقع',
 				'br' => 'Mapa do Site',
+				'pt' => 'Mapa do Site',
 				'de' => 'Sitemap',
 				'el' => 'Χάρτης Ιστότοπου',
 				'es' => 'Mapa del Sitio',
@@ -28,6 +29,7 @@ class Module_Sitemap extends Module {
 				'nl' => 'Sitemap',
 				'ru' => 'Карта сайта',
 				'zh' => '網站地圖',
+				'th' => 'ไซต์แมพ',
                                 'hu' => 'Oldaltérkép',
                                 'se' => 'Sajtkarta'
 			),
@@ -35,6 +37,7 @@ class Module_Sitemap extends Module {
 				'en' => 'The sitemap module creates an index of all pages and an XML sitemap for search engines.',
 				'ar' => 'وحدة خريطة الموقع تنشئ فهرساً لجميع الصفحات وملف XML لمحركات البحث.',
 				'br' => 'O módulo de mapa do site cria um índice de todas as páginas e um sitemap XML para motores de busca.',
+				'pt' => 'O módulo do mapa do site cria um índice de todas as páginas e um sitemap XML para motores de busca.',
 				'da' => 'Sitemapmodulet opretter et indeks over alle sider og et XML sitemap til søgemaskiner.',
 				'de' => 'Die Sitemap Modul erstellt einen Index aller Seiten und eine XML-Sitemap für Suchmaschinen.',
 				'el' => 'Δημιουργεί έναν κατάλογο όλων των σελίδων και έναν χάρτη σελίδων σε μορφή XML για τις μηχανές αναζήτησης.',
@@ -47,6 +50,7 @@ class Module_Sitemap extends Module {
 				'nl' => 'De sitemap module maakt een index van alle pagina\'s en een XML sitemap voor zoekmachines.',
 				'ru' => 'Карта модуль создает индекс всех страниц и карта сайта XML для поисковых систем.',
 				'zh' => '站點地圖模塊創建一個索引的所有網頁和XML網站地圖搜索引擎。',
+				'th' => 'โมดูลไซต์แมพสามารถสร้างดัชนีของหน้าเว็บทั้งหมดสำหรับเครื่องมือค้นหา.',
                                 'hu' => 'Ez a modul indexeli az összes oldalt és egy XML oldaltéképet generál a keresőmotoroknak.',
                                 'se' => 'Sajtkarta, modulen skapar ett index av alla sidor och en XML-sitemap för sökmotorer.'
 			),

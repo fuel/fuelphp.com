@@ -190,7 +190,7 @@ class Row_m extends MY_Model {
 
 		if (isset($get_day) and $get_day == true)
 		{
-			$this->sql['select'][] = 'DAY('.$this->select_prefix.$this->db->protect_identifiers($date_by).') as pyrostreams_cal_day';
+			$this->sql['select'][] = 'DAY('.$this->format_mysql_date($date_by).') as pyrostreams_cal_day';
 		}
 	
 		// -------------------------------------
@@ -283,7 +283,7 @@ class Row_m extends MY_Model {
 			
 			foreach ($inclusions as $include_id)
 			{
-				$this->sql['where'][] = $this->select_prefix.$this->db->protect_identifiers($include_by).' !='.$this->db->escape($include_id);
+				$this->sql['where'][] = $this->select_prefix.$this->db->protect_identifiers($include_by).'='.$this->db->escape($include_id);
 			}
 		}
 
@@ -336,7 +336,7 @@ class Row_m extends MY_Model {
 
 		if (isset($show_upcoming) and $show_upcoming == 'no')
 		{
-			$this->sql['where'][] = $this->select_prefix.$this->db->protect_identifiers($date_by).' <= CURDATE()';
+			$this->sql['where'][] = $this->format_mysql_date($date_by).' <= CURDATE()';
 		}
 
 		// -------------------------------------
@@ -348,28 +348,26 @@ class Row_m extends MY_Model {
 
 		if (isset($show_past) and $show_past == 'no')
 		{
-			$this->sql['where'][] = $this->select_prefix.$this->db->protect_identifiers($date_by).' >= CURDATE()';
+			$this->sql['where'][] = $this->format_mysql_date($date_by).' >= CURDATE()';
 		}
 
 		// -------------------------------------
 		// Month / Day / Year
 		// -------------------------------------
 		
-		if(isset($date_by)) $date_by_protected = $this->db->protect_identifiers($date_by);
-
 		if (isset($year) and is_numeric($year))
 		{
-			$this->sql['where'][] = 'YEAR('.$this->select_prefix.$date_by_protected.')='.$this->db->escape($year);
+			$this->sql['where'][] = 'YEAR('.$this->format_mysql_date($date_by).')='.$this->db->escape($year);
 		}
 
 		if (isset($month) and is_numeric($month))
 		{
-			$this->sql['where'][] = 'MONTH('.$this->select_prefix.$date_by_protected.')='.$this->db->escape($month);
+			$this->sql['where'][] = 'MONTH('.$this->format_mysql_date($date_by).')='.$this->db->escape($month);
 		}
 
 		if (isset($day) and is_numeric($day))
 		{
-			$this->sql['where'][] = 'DAY('.$this->select_prefix.$date_by_protected.')='.$this->db->escape($day);
+			$this->sql['where'][] = 'DAY('.$this->format_mysql_date($date_by).')='.$this->db->escape($day);
 		}
 
 		// -------------------------------------
@@ -420,7 +418,8 @@ class Row_m extends MY_Model {
 		if (isset($id) and is_numeric($id))
 		{
 			$this->sql['where'][] = $this->select_prefix.$this->db->protect_identifiers('id').'='.$id;
-			$limit = 1;
+			$limit 		= 1;
+			$offset 	= 0;
 		}
 
 		// -------------------------------------
@@ -447,7 +446,7 @@ class Row_m extends MY_Model {
 		{
 			if (method_exists($this->get_rows_hook[0], $this->get_rows_hook[1]))
 			{
-				$this->get_rows_hook[0]->{$this->get_rows_hook[1]}($this->get_rows_hook_data);
+				$this->get_rows_hook[0]->{$this->get_rows_hook[1]}($this->get_rows_hook_data, $this);
 			}
 		}
 		
@@ -545,6 +544,33 @@ class Row_m extends MY_Model {
 	// --------------------------------------------------------------------------
 
 	/**
+	 * Dates can either be in UNIX or MYSQL format.
+	 * This makes it so we can do our date functions on
+	 * UNIX time stamps.
+	 *
+	 * @access 	public
+	 * @param 	string - date by
+	 * @return 	string
+	 */
+	public function format_mysql_date($date_by)
+	{
+		$return = $date_by;
+
+		// Get the field and see if it has a preference for UNIX vs. MySQL
+		if (array_key_exists($date_by, $this->all_fields) and ($date_by != 'created' and $date_by != 'updated'))
+		{
+			if (isset($this->all_fields[$date_by]['field_data']['storage']) and $this->all_fields[$date_by]['field_data']['storage'] == 'unix')
+			{
+				return 'FROM_UNIXTIME('.$this->select_prefix.$this->db->protect_identifiers($date_by).')';
+			}
+		}
+
+		return $this->select_prefix.$this->db->protect_identifiers($date_by);
+	}
+
+	// --------------------------------------------------------------------------
+
+	/**
 	 * Build Query
 	 *
 	 * Does not do LIMIT/OFFSET since that will
@@ -577,6 +603,19 @@ class Row_m extends MY_Model {
 		else
 		{
 			$from = implode(', ', $this->sql['from']);
+		}
+
+		// -------------------------------------
+		// Join
+		// -------------------------------------
+
+		if (isset($this->sql['join']) && is_string($this->sql['join']))
+		{
+			$join = $this->sql['join'];
+		}
+		else
+		{
+			(isset($this->sql['join'])) ? $join = implode(' ', $this->sql['join']) : $join = NULL;
 		}
 
 		// -------------------------------------
@@ -637,6 +676,7 @@ class Row_m extends MY_Model {
 
 		return "SELECT {$select}
 		FROM {$from}
+		{$join}
 		{$where}
 		{$misc}
 		{$order_by} ";
@@ -644,6 +684,15 @@ class Row_m extends MY_Model {
 
 	// --------------------------------------------------------------------------
 
+	/**
+	 * Process the where string. Anything in backticks 
+	 * is considered a table name and has a table prefix
+	 * added onto it.
+	 *
+	 * @access 	private
+	 * @param 	string - where string
+	 * @return 	string
+	 */
 	private function process_where($where)
 	{
 		// Remove ()
@@ -662,7 +711,7 @@ class Row_m extends MY_Model {
 			}
 		}
 
-		return $where;
+		return '('.$where.')';
 	}
 
 	// --------------------------------------------------------------------------
@@ -995,6 +1044,8 @@ class Row_m extends MY_Model {
 	 */
 	public function update_entry($fields, $stream, $row_id, $form_data, $skips = array())
 	{
+		$this->load->helper('text');
+
 		// -------------------------------------
 		// Run through fields
 		// -------------------------------------
@@ -1081,12 +1132,20 @@ class Row_m extends MY_Model {
 									$field,
 									$stream,
 									$row_id,
-									$form_data
-						);
+									$form_data);
+
+						if (is_null($return_data[$field->field_slug]))
+						{
+							unset($return_data[$field->field_slug]);
+						}
+						else
+						{
+							$return_data[$field->field_slug] = escape_tags($return_data[$field->field_slug]);
+						}
 					}
 					else
 					{
-						$return_data[$field->field_slug] = $form_data[$field->field_slug];
+						$return_data[$field->field_slug] = escape_tags($form_data[$field->field_slug]);
 	
 						// Make null - some fields don't like just blank values
 						if ($return_data[$field->field_slug] == '')
@@ -1127,11 +1186,14 @@ class Row_m extends MY_Model {
 	 * @param	obj - our stream fields
 	 * @param	obj - our stream
 	 * @param	array - optional skipping fields
-	 * @param 	array - optional assoc array of data to exclude from processing
+	 * @param 	array - optional assoc array of data to exclude from processing, but to
+	 * 						include in saving to the database.
 	 * @return	mixed
 	 */
 	public function insert_entry($data, $fields, $stream, $skips = array(), $extra = array())
 	{
+		$this->load->helper('text');
+
 		// -------------------------------------
 		// Run through fields
 		// -------------------------------------
@@ -1159,21 +1221,20 @@ class Row_m extends MY_Model {
 					{
 						if (method_exists($type, 'pre_save'))
 						{
-							$data[$field->field_slug] = $type->pre_save($data[$field->field_slug], $field, $stream, null, $data);
+							$insert_data[$field->field_slug] = $type->pre_save($data[$field->field_slug], $field, $stream, null, $data);
 						}
-						
-						// Trim if a string
-						if (is_string($data[$field->field_slug]))
+						else
 						{
-							$data[$field->field_slug] = trim($data[$field->field_slug]);
+							$insert_data[$field->field_slug] = $data[$field->field_slug];
 						}
-						
-						$insert_data[$field->field_slug] = $data[$field->field_slug];
 
-						// Make null - some fields don't like just blank values
-						if ($insert_data[$field->field_slug] == '')
+						if (is_null($insert_data[$field->field_slug]))
 						{
-							$insert_data[$field->field_slug] = null;
+							unset($insert_data[$field->field_slug]);
+						}
+						elseif(is_string($insert_data[$field->field_slug]))
+						{
+							$insert_data[$field->field_slug] = escape_tags(trim($insert_data[$field->field_slug]));
 						}
 					}
 				}

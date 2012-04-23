@@ -17,6 +17,7 @@ class Module_Templates extends Module {
 				'en' => 'Email Templates',
 				'ar' => 'قوالب الرسائل الإلكترونية',
 				'br' => 'Modelos de e-mail',
+				'pt' => 'Modelos de e-mail',
 				'da' => 'Email skabeloner',
 				'el' => 'Δυναμικά email',
 				'es' => 'Plantillas de email',
@@ -30,12 +31,14 @@ class Module_Templates extends Module {
 				'zh' => '郵件範本',
 				'hu' => 'E-mail sablonok',
 				'fi' => 'Sähköposti viestipohjat',
+				'th' => 'แม่แบบอีเมล',
                                 'se' => 'E-postmallar'
 			),
 			'description' => array(
 				'en' => 'Create, edit, and save dynamic email templates',
 				'ar' => 'أنشئ، عدّل واحفظ قوالب البريد الإلكترني الديناميكية.',
 				'br' => 'Criar, editar e salvar modelos de e-mail dinâmicos',
+				'pt' => 'Criar, editar e salvar modelos de e-mail dinâmicos',
 				'da' => 'Opret, redigér og gem dynamiske emailskabeloner.',
 				'el' => 'Δημιουργήστε, επεξεργαστείτε και αποθηκεύστε δυναμικά email.',
 				'es' => 'Crear, editar y guardar plantillas de email dinámicas',
@@ -47,8 +50,9 @@ class Module_Templates extends Module {
 				'ru' => 'Создавайте, редактируйте и сохраняйте динамические почтовые шаблоны',
 				'sl' => 'Ustvari, uredi in shrani spremenljive email predloge',
 				'zh' => '新增、編輯與儲存可顯示動態資料的 email 範本',
-                                'hu' => 'Csináld, szerkeszd és mentsd el a dinamikus e-mail sablonokat',
+                'hu' => 'Csináld, szerkeszd és mentsd el a dinamikus e-mail sablonokat',
 				'fi' => 'Lisää, muokkaa ja tallenna dynaamisia sähköposti viestipohjia.',
+				'th' => 'การสร้างแก้ไขและบันทึกแม่แบบอีเมลแบบไดนามิก',
                                 'se' => 'Skapa, redigera och spara dynamiska E-postmallar.'
 			),
 			'frontend' => false,

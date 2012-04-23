@@ -17,6 +17,7 @@ class Module_Files extends Module {
 				'en' => 'Files',
 				'ar' => 'الملفّات',
 				'br' => 'Arquivos',
+				'pt' => 'Ficheiros',
 				'cs' => 'Soubory',
 				'da' => 'Filer',
 				'de' => 'Dateien',
@@ -33,12 +34,14 @@ class Module_Files extends Module {
 				'sl' => 'Datoteke',
 				'zh' => '檔案',
 				'hu' => 'Fájlok',
+				'th' => 'ไฟล์',
                                 'se' => 'Filer'
 			),
 			'description' => array(
 				'en' => 'Manages files and folders for your site.',
 				'ar' => 'إدارة ملفات ومجلّدات موقعك.',
 				'br' => 'Permite gerenciar facilmente os arquivos de seu site.',
+				'pt' => 'Permite gerir facilmente os ficheiros e pastas do seu site.',
 				'cs' => 'Spravujte soubory a složky na vašem webu.',
 				'da' => 'Administrer filer og mapper for dit site.',
 				'de' => 'Verwalte Dateien und Verzeichnisse.',
@@ -55,6 +58,7 @@ class Module_Files extends Module {
 				'sl' => 'Uredi datoteke in mape na vaši strani',
 				'zh' => '管理網站中的檔案與目錄',
 				'hu' => 'Fájlok és mappák kezelése az oldalon.',
+				'th' => 'บริหารจัดการไฟล์และโฟลเดอร์สำหรับเว็บไซต์ของคุณ',
                                 'se' => 'Hanterar filer och mappar för din webbplats.'
 			),
 			'frontend' => FALSE,

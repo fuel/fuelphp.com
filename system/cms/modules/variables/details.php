@@ -17,6 +17,7 @@ class Module_Variables extends Module {
 				'en' => 'Variables',
 				'ar' => 'المتغيّرات',
 				'br' => 'Variáveis',
+				'pt' => 'Variáveis',
 				'cs' => 'Proměnné',
 				'da' => 'Variable',
 				'de' => 'Variablen',
@@ -34,12 +35,14 @@ class Module_Variables extends Module {
 				'sl' => 'Spremenljivke',
 				'zh' => '系統變數',
 				'hu' => 'Változók',
+				'th' => 'ตัวแปร',
                                 'se' => 'Variabler'
 			),
 			'description' => array(
 				'en' => 'Manage global variables that can be accessed from anywhere.',
 				'ar' => 'إدارة المُتغيّرات العامة لاستخدامها في أرجاء الموقع.',
 				'br' => 'Gerencia as variáveis globais acessíveis de qualquer lugar.',
+				'pt' => 'Gerir as variáveis globais acessíveis de qualquer lugar.',
 				'cs' => 'Spravujte globální proměnné přístupné odkudkoliv.',
 				'da' => 'Håndtér globale variable som kan tilgås overalt.',
 				'de' => 'Verwaltet globale Variablen, auf die von überall zugegriffen werden kann.',
@@ -55,6 +58,7 @@ class Module_Variables extends Module {
 				'pl' => 'Zarządzaj globalnymi zmiennymi do których masz dostęp z każdego miejsca aplikacji.',
 				'ru' => 'Управление глобальными переменными, которые доступны в любом месте сайта.',
 				'sl' =>	'Urejanje globalnih spremenljivk za dostop od kjerkoli',
+				'th' => 'จัดการตัวแปรทั่วไปโดยที่สามารถเข้าถึงได้จากทุกที่.',
 				'zh' => '管理此網站內可存取的全局變數。',
                                 'hu' => 'Globális változók kezelése a hozzáféréshez, bárhonnan.',
                                 'se' => 'Hantera globala variabler som kan avändas över hela webbplatsen.'

@@ -18,6 +18,7 @@
 				'en' => 'Groups',
 				'ar' => 'المجموعات',
 				'br' => 'Grupos',
+				'pt' => 'Grupos',
 				'cs' => 'Skupiny',
 				'da' => 'Grupper',
 				'de' => 'Gruppen',
@@ -34,12 +35,14 @@
 				'sl' => 'Skupine',
 				'zh' => '群組',
 				'hu' => 'Csoportok',
+				'th' => 'กลุ่ม',
                                 'se' => 'Grupper'
 			),
 			'description' => array(
 				'en' => 'Users can be placed into groups to manage permissions.',
 				'ar' => 'يمكن وضع المستخدمين في مجموعات لتسهيل إدارة صلاحياتهم.',
 				'br' => 'Usuários podem ser inseridos em grupos para gerenciar suas permissões.',
+				'pt' => 'Utilizadores podem ser inseridos em grupos para gerir as suas permissões.',
 				'cs' => 'Uživatelé mohou být rozřazeni do skupin pro lepší správu oprávnění.',
 				'da' => 'Brugere kan inddeles i grupper for adgangskontrol',
 				'de' => 'Benutzer können zu Gruppen zusammengefasst werden um diesen Zugriffsrechte zu geben.',
@@ -56,6 +59,7 @@
 				'sl' => 'Uporabniki so lahko razvrščeni v skupine za urejanje dovoljenj',
 				'zh' => '用戶可以依群組分類並管理其權限',
 				'hu' => 'A felhasználók csoportokba rendezhetőek a jogosultságok kezelésére.',
+				'en' => 'สามารถวางผู้ใช้ลงในกลุ่มเพื่อการจัดการสิทธิ์',
                                 'se' => 'Användare kan delas in i grupper för att hantera roller och behörigheter.'
 			),
 			'frontend' => false,

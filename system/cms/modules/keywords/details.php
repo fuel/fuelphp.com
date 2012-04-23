@@ -19,6 +19,7 @@ class Module_Keywords extends Module {
 				'en' => 'Keywords',
 				'ar' => 'كلمات البحث',
 				'br' => 'Palavras-chave',
+				'pt' => 'Palavras-chave',
 				'da' => 'Nøgleord',
 				'el' => 'Λέξεις Κλειδιά',
 				'fr' => 'Mots-Clés',
@@ -27,12 +28,15 @@ class Module_Keywords extends Module {
 				'zh' => '鍵詞',
 				'hu' => 'Kulcsszavak',
 				'fi' => 'Avainsanat',
+				'sl' => 'Ključne besede',
+				'th' => 'คำค้น',
                                 'se' => 'Nyckelord'
 			),
 			'description' => array(
 				'en' => 'Maintain a central list of keywords to label and organize your content.',
 				'ar' => 'أنشئ مجموعة من كلمات البحث التي تستطيع من خلالها وسم وتنظيم المحتوى.',
 				'br' => 'Mantém uma lista central de palavras-chave para rotular e organizar o seu conteúdo.',
+				'pt' => 'Mantém uma lista central de palavras-chave para rotular e organizar o seu conteúdo.',
 				'da' => 'Vedligehold en central liste af nøgleord for at organisere dit indhold.',
 				'el' => 'Συντηρεί μια κεντρική λίστα από λέξεις κλειδιά για να οργανώνετε μέσω ετικετών το περιεχόμενό σας.',
 				'fr' => 'Maintenir une liste centralisée de Mots-Clés pour libeller et organiser vos contenus.',
@@ -41,6 +45,8 @@ class Module_Keywords extends Module {
 				'zh' => '集中管理可用於標題與內容的鍵詞(keywords)列表。',
 				'hu' => 'Ez egy központi kulcsszó lista a cimkékhez és a tartalmakhoz.',
 				'fi' => 'Hallinnoi keskitettyä listaa avainsanoista merkitäksesi ja järjestelläksesi sisältöä.',
+				'sl' => 'Vzdržuj centralni seznam ključnih besed za označevanje in ogranizacijo vsebine.',
+				'th' => 'ศูนย์กลางการปรับปรุงคำค้นในการติดฉลากและจัดระเบียบเนื้อหาของคุณ',
                                 'se' => 'Hantera nyckelord för att organisera webbplatsens innehåll.'
 			),
 			'frontend' => false,

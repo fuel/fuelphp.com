@@ -17,6 +17,7 @@ class Module_Navigation extends Module {
 				'en' => 'Navigation',
 				'ar' => 'الروابط',
 				'br' => 'Navegação',
+				'pt' => 'Navegação',
 				'cs' => 'Navigace',
 				'da' => 'Navigation', #translate
 				'de' => 'Navigation',
@@ -33,6 +34,7 @@ class Module_Navigation extends Module {
 				'ru' => 'Навигация',
 				'sl' => 'Navigacija',
 				'zh' => '導航選單',
+				'th' => 'ตัวช่วยนำทาง',
                                 'hu' => 'Navigáció',
                                 'se' => 'Navigation'
 			),
@@ -40,6 +42,7 @@ class Module_Navigation extends Module {
 				'en' => 'Manage links on navigation menus and all the navigation groups they belong to.',
 				'ar' => 'إدارة روابط وقوائم ومجموعات الروابط في الموقع.',
 				'br' => 'Gerenciar links do menu de navegação e todos os grupos de navegação pertencentes a ele.',
+				'pt' => 'Gerir todos os grupos dos menus de navegação e os links de navegação pertencentes a eles.',
 				'cs' => 'Správa odkazů v navigaci a všech souvisejících navigačních skupin.',
 				'da' => 'Håndtér links på navigationsmenuerne og alle navigationsgrupperne de tilhører.',
 				'de' => 'Verwalte Links in Navigationsmenüs und alle zugehörigen Navigationsgruppen',
@@ -56,6 +59,7 @@ class Module_Navigation extends Module {
 				'ru' => 'Управление ссылками в меню навигации и группах, к которым они принадлежат.',
 				'sl' => 'Uredi povezave v meniju in vse skupine povezav ki jim pripadajo.',
 				'zh' => '管理導航選單中的連結，以及它們所隸屬的導航群組。',
+				'th' => 'จัดการการเชื่อมโยงนำทางและกลุ่มนำทาง',
 				'hu' => 'Linkek kezelése a navigációs menükben és a navigációs csoportok kezelése, amikhez tartoznak.',
                                 'se' => 'Hantera länkar och länkgrupper.'
 			),

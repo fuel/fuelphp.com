@@ -17,6 +17,7 @@ class Module_Themes extends Module {
 				'en' => 'Themes',
 				'ar' => 'السّمات',
 				'br' => 'Temas',
+				'pt' => 'Temas',
 				'cs' => 'Motivy vzhledu',
 				'da' => 'Temaer',
 				'de' => 'Themen',
@@ -34,12 +35,14 @@ class Module_Themes extends Module {
 				'sl' => 'Predloge',
 				'zh' => '佈景主題',
 				'hu' => 'Sablonok',
+				'th' => 'ธีม',
                                 'se' => 'Teman'
 			),
 			'description' => array(
 				'en' => 'Allows admins and staff to switch themes, upload new themes, and manage theme options.',
 				'ar' => 'تمكّن الإدارة وأعضاء الموقع تغيير سِمة الموقع، وتحميل سمات جديدة وإدارتها بطريقة مرئية سلسة.',
 				'br' => 'Permite aos administradores e membros da equipe fazer upload de novos temas e gerenciá-los através de uma interface visual.',
+				'pt' => 'Permite aos administradores fazer upload de novos temas e geri-los através de uma interface visual.',
 				'cs' => 'Umožňuje administrátorům a dalším osobám měnit vzhled webu, nahrávat nové motivy a spravovat je.',
 				'da' => 'Lader administratore ændre websidens tema, uploade nye temaer og håndtére dem med en mere visual tilgang.',
 				'de' => 'Ermöglicht es dem Administrator das Seiten Thema auszuwählen, neue Themen hochzulanden oder diese visuell zu verwalten.',
@@ -56,6 +59,7 @@ class Module_Themes extends Module {
 				'ru' => 'Управление темами оформления сайта, загрузка новых тем.',
 				'sl' => 'Dovoljuje adminom in osebju spremembo izgleda spletne strani, namestitev novega izgleda in urejanja le tega v bolj vizualnem pristopu',
 				'zh' => '讓管理者可以更改網站顯示風貌，以視覺化的操作上傳並管理這些網站佈景主題。',
+				'th' => 'ช่วยให้ผู้ดูแลระบบสามารถอัปโหลดรูปแบบใหม่และการจัดการตัวเลือกชุดรูปแบบได้',
                                 'hu' => 'Az adminok megváltoztathatják az oldal kinézetét, feltölthetnek új kinézeteket és kezelhetik őket.',
                                 'se' => 'Hantera webbplatsens utseende genom teman, ladda upp nya teman och hantera temainställningar.'
 			),

@@ -18,6 +18,7 @@ class Module_Modules extends Module
 				'en' => 'Modules',
 				'ar' => 'الوحدات',
 				'br' => 'Módulos',
+				'pt' => 'Módulos',
 				'cs' => 'Moduly',
 				'da' => 'Moduler',
 				'de' => 'Module',
@@ -35,12 +36,14 @@ class Module_Modules extends Module
 				'sl' => 'Moduli',
 				'zh' => '模組',
 				'hu' => 'Modulok',
+				'th' => 'โมดูล',
                                 'se' => 'Moduler'
 			),
 			'description' => array(
 				'en' => 'Allows admins to see a list of currently installed modules.',
 				'ar' => 'تُمكّن المُدراء من معاينة جميع الوحدات المُثبّتة.',
 				'br' => 'Permite aos administradores ver a lista dos módulos instalados atualmente.',
+				'pt' => 'Permite aos administradores ver a lista dos módulos instalados atualmente.',
 				'cs' => 'Umožňuje administrátorům vidět seznam nainstalovaných modulů.',
 				'da' => 'Lader administratorer se en liste over de installerede moduler.',
 				'de' => 'Zeigt Administratoren alle aktuell installierten Module.',
@@ -58,6 +61,7 @@ class Module_Modules extends Module
 				'sl' => 'Dovoljuje administratorjem pregled trenutno nameščenih modulov.',
 				'zh' => '管理員可以檢視目前已經安裝模組的列表',
 				'hu' => 'Lehetővé teszi az adminoknak, hogy lássák a telepített modulok listáját.',
+				'th' => 'ช่วยให้ผู้ดูแลระบบดูรายการของโมดูลที่ติดตั้งในปัจจุบัน',
                                 'se' => 'Gör det möjligt för administratören att se installerade mouler.'
 			),
 			'frontend' => false,

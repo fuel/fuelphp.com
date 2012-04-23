@@ -55,6 +55,7 @@ $lang['streams.type_not_valid']							= "Merci de choisir un type de Champ valid
 $lang['streams.stream_slug_not_unique']					= "Ce slug de Flux est déjà utilisé.";
 $lang['streams.field_unique']							= "Le Champ %s doit être unique.";
 $lang['streams.field_is_required']						= "Le Champ %s est requis.";
+$lang['streams.date_out_or_range']						= "The date you have chosen is out of the acceptable range."; #translate
 
 /* Field Labels */
 
@@ -125,7 +126,7 @@ $lang['streams.last_updated']							= "Dernière mise à jour";
 
 $lang['streams.start.add_one']							= "ajouter un ici";
 $lang['streams.start.no_fields']						= "Vous n'avez pas encore créé de champs. Pour commencer, vous pouvez";
-$lang['streams.start.no_assign'] 						= "Looks like there are no fields yet for this stream. To start, you can";
+$lang['streams.start.no_assign'] 						= "On dirait qu\'il n\'y a aucun champ pour ce Flux. Pour commencer, vous pouvez";
 $lang['streams.start.add_field_here']					= "ajouter un Chmap ici";
 $lang['streams.start.create_field_here']				= "créer un champ ici";
 $lang['streams.start.no_streams']						= "Il n'y a aucun flux pour le moment, vous pouvez commencer par";

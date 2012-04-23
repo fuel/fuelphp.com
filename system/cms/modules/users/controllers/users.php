@@ -96,8 +96,6 @@ class Users extends Public_Controller
 		// If the validation worked, or the user is already logged in
 		if ($this->form_validation->run() or $this->current_user)
 		{
-			$this->session->set_flashdata('success', lang('user_logged_in'));
-
 			// Kill the session
 			$this->session->unset_userdata('redirect_to');
 
@@ -107,7 +105,25 @@ class Users extends Public_Controller
 			// trigger a post login event for third party devs
 			Events::trigger('post_user_login');
 
+			if ($this->input->is_ajax_request())
+			{
+				$user = $this->ion_auth->get_user_by_email($user->email);
+				$user->password = '';
+				$user->salt = '';
+
+				exit(json_encode(array('status' => true, 'message' => lang('user_logged_in'), 'data' => $user)));
+			}
+			else
+			{
+				$this->session->set_flashdata('success', lang('user_logged_in'));
+			}
+
 			redirect($redirect_to ? $redirect_to : '');
+		}
+
+		if ($_POST and $this->input->is_ajax_request())
+		{
+			exit(json_encode(array('status' => false, 'message' => validation_errors())));
 		}
 
 		$this->template
@@ -126,8 +142,16 @@ class Users extends Public_Controller
 		Events::trigger('pre_user_logout');
 
 		$this->ion_auth->logout();
-		$this->session->set_flashdata('success', lang('user_logged_out'));
-		redirect('');
+
+		if ($this->input->is_ajax_request())
+		{
+			exit(json_encode(array('status' => true, 'message' => lang('user_logged_out'))));
+		}
+		else
+		{
+			$this->session->set_flashdata('success', lang('user_logged_out'));
+			redirect('');
+		}
 	}
 
 	/**
@@ -206,7 +230,7 @@ class Users extends Public_Controller
 		// Get the profile data to pass to the register function.
 		foreach ($assignments as $assign)
 		{
-			if ($assign->is_required == 'yes' and $assign->field_slug != 'display_name')
+			if ($assign->field_slug != 'display_name')
 			{
 				if (isset($_POST[$assign->field_slug]))
 				{
@@ -289,7 +313,7 @@ class Users extends Public_Controller
 
 				// Do we have a display name? If so, let's use that.
 				// Othwerise we can use the username.
-				if ( ! isset($profile_data['display_name']))
+				if ( ! isset($profile_data['display_name']) or ! $profile_data['display_name'])
 				{
 					$profile_data['display_name'] = $username;
 				}
@@ -559,6 +583,12 @@ class Users extends Public_Controller
 			$user = $this->current_user or redirect('users/login/users/edit'.(($id > 0) ? '/'.$id : ''));
 		}
 
+		$profile_data = array(); // For our form
+
+		// Get the profile data
+		$profile_row = $this->db->limit(1)
+			->where('user_id', $this->current_user->id)->get('profiles')->row();
+
 		// If we have API's enabled, load stuff
 		if (Settings::get('api_enabled') and Settings::get('api_user_keys'))
 		{
@@ -587,7 +617,7 @@ class Users extends Public_Controller
 
 		// Get the profile fields validation array from streams
 		$this->load->driver('Streams');
-		$profile_validation = $this->streams->streams->validation_array('profiles', 'users');
+		$profile_validation = $this->streams->streams->validation_array('profiles', 'users', 'edit', array(), $profile_row->id);
 
 		// Set the validation rules
 		$this->form_validation->set_rules(array_merge($this->validation_rules, $profile_validation));
@@ -603,7 +633,7 @@ class Users extends Public_Controller
 		{
 			PYRO_DEMO and show_error(lang('global:demo_restrictions'));
 
-			// Loop through each POST item and add it to the secure_post array
+			// Get our secure post
 			$secure_post = $this->input->post();
 
 			$user_data = array(); // Data for our user table
@@ -621,7 +651,7 @@ class Users extends Public_Controller
 			$user_data['email'] = $secure_post['email'];
 
 			// If password is being changed (and matches)
-			if ( ! $secure_post['password'])
+			if ($secure_post['password'])
 			{
 				$user_data['password'] = $secure_post['password'];
 				unset($secure_post['password']);
@@ -673,12 +703,6 @@ class Users extends Public_Controller
 		// --------------------------------
 		// Grab user profile data
 		// --------------------------------
-
-		$profile_data = array(); // For our form
-
-		// Get the profile data
-		$profile_row = $this->db->limit(1)
-			->where('user_id', $this->current_user->id)->get('profiles')->row();
 
 		foreach ($assignments as $assign)
 		{

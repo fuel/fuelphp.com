@@ -17,6 +17,7 @@ class Module_Pages extends Module {
 				'en' => 'Pages',
 				'ar' => 'الصفحات',
 				'br' => 'Páginas',
+				'pt' => 'Páginas',
 				'cs' => 'Stránky',
 				'da' => 'Sider',
 				'de' => 'Seiten',
@@ -34,12 +35,14 @@ class Module_Pages extends Module {
 				'sl' => 'Strani',
 				'zh' => '頁面',
 				'hu' => 'Oldalak',
+				'th' => 'หน้าเพจ',
                                 'se' => 'Sidor'
 			),
 			'description' => array(
 				'en' => 'Add custom pages to the site with any content you want.',
 				'ar' => 'إضافة صفحات مُخصّصة إلى الموقع تحتوي أية مُحتوى تريده.',
 				'br' => 'Adicionar páginas personalizadas ao site com qualquer conteúdo que você queira.',
+				'pt' => 'Adicionar páginas personalizadas ao seu site com qualquer conteúdo que você queira.',
 				'cs' => 'Přidávejte vlastní stránky na web s jakýmkoliv obsahem budete chtít.',
 				'da' => 'Tilføj brugerdefinerede sider til dit site med det indhold du ønsker.',
 				'de' => 'Füge eigene Seiten mit anpassbaren Inhalt hinzu.',
@@ -56,6 +59,7 @@ class Module_Pages extends Module {
 				'ru' => 'Управление информационными страницами сайта, с произвольным содержимым.',
 				'sl' => 'Dodaj stran s kakršno koli vsebino želite.',
 				'zh' => '為您的網站新增自定的頁面。',
+				'th' => 'เพิ่มหน้าเว็บที่กำหนดเองไปยังเว็บไซต์ของคุณตามที่ต้องการ',
 				'hu' => 'Saját oldalak hozzáadása a weboldalhoz, akármilyen tartalommal.',
                                 'se' => 'Lägg till egna sidor till webbplatsen.'
 			),

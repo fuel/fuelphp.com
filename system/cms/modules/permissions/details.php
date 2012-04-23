@@ -17,6 +17,7 @@ class Module_Permissions extends Module {
 				'en' => 'Permissions',
 				'ar' => 'الصلاحيات',
 				'br' => 'Permissões',
+				'pt' => 'Permissões',
 				'cs' => 'Oprávnění',
 				'da' => 'Adgangskontrol',
 				'de' => 'Zugriffsrechte',
@@ -34,12 +35,14 @@ class Module_Permissions extends Module {
 				'sl' => 'Dovoljenja',
 				'zh' => '權限',
 				'hu' => 'Jogosultságok',
+				'th' => 'สิทธิ์',
                                 'se' => 'Behörigheter'
 			),
 			'description' => array(
 				'en' => 'Control what type of users can see certain sections within the site.',
 				'ar' => 'التحكم بإعطاء الصلاحيات للمستخدمين للوصول إلى أقسام الموقع المختلفة.',
 				'br' => 'Controle quais tipos de usuários podem ver certas seções no site.',
+				'pt' => 'Controle quais os tipos de utilizadores podem ver certas secções no site.',
 				'cs' => 'Spravujte oprávnění pro jednotlivé typy uživatelů a ke kterým sekcím mají přístup.',
 				'da' => 'Kontroller hvilken type brugere der kan se bestemte sektioner på sitet.',
 				'de' => 'Regelt welche Art von Benutzer welche Sektion in der Seite sehen kann.',
@@ -57,6 +60,7 @@ class Module_Permissions extends Module {
 				'sl' => 'Uredite dovoljenja kateri tip uporabnika lahko vidi določena področja vaše strani.',
 				'zh' => '用來控制不同類別的用戶，設定其瀏覽特定網站內容的權限。',
 				'hu' => 'A felhasználók felügyelet alatt tartására, hogy milyen típusú felhasználók, mit láthatnak, mely szakaszain az oldalnak.',
+				'th' => 'ควบคุมว่าผู้ใช้งานจะเห็นหมวดหมู่ไหนบ้าง',
                                 'se' => 'Hantera gruppbehörigheter.'
 			),
 			'frontend' => false,

@@ -17,6 +17,7 @@ class Module_Comments extends Module {
 				'en' => 'Comments',
 				'ar' => 'التعليقات',
 				'br' => 'Comentários',
+				'pt' => 'Comentários',
 				'cs' => 'Komentáře',
 				'da' => 'Kommentarer',
 				'de' => 'Kommentare',
@@ -34,12 +35,14 @@ class Module_Comments extends Module {
 				'sl' => 'Komentarji',
 				'zh' => '回應',
 				'hu' => 'Hozzászólások',
+				'th' => 'ความคิดเห็น',
                                 'se' => 'Kommentarer'
 			),
 			'description' => array(
 				'en' => 'Users and guests can write comments for content like blog, pages and photos.',
 				'ar' => 'يستطيع الأعضاء والزوّار كتابة التعليقات على المُحتوى كالأخبار، والصفحات والصّوَر.',
 				'br' => 'Usuários e convidados podem escrever comentários para quase tudo com suporte nativo ao captcha.',
+				'pt' => 'Utilizadores e convidados podem escrever comentários para quase tudo com suporte nativo ao captcha.',
 				'cs' => 'Uživatelé a hosté mohou psát komentáře k obsahu, např. neovinkám, stránkám a fotografiím.',
 				'da' => 'Brugere og besøgende kan skrive kommentarer til indhold som blog, sider og fotoer.',
 				'de' => 'Benutzer und Gäste können für fast alles Kommentare schreiben.',
@@ -57,6 +60,7 @@ class Module_Comments extends Module {
 				'sl' => 'Uporabniki in obiskovalci lahko vnesejo komentarje na vsebino kot je blok, stra ali slike',
 				'zh' => '用戶和訪客可以針對新聞、頁面與照片等內容發表回應。',
 				'hu' => 'A felhasználók és a vendégek hozzászólásokat írhatnak a tartalomhoz (bejegyzésekhez, oldalakhoz, fotókhoz).',
+				'th' => 'ผู้ใช้งานและผู้เยี่ยมชมสามารถเขียนความคิดเห็นในเนื้อหาของหน้าเว็บบล็อกและภาพถ่าย',
                                 'se' => 'Användare och besökare kan skriva kommentarer till innehåll som blogginlägg, sidor och bilder.'
 			),
 			'frontend' => false,

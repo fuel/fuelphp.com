@@ -380,6 +380,7 @@ section.title h4 a {
 section.item {
 	background: #ffffff;
 	width: 100%;
+	min-height: 100px;
 	margin: 0;
 	padding: 16px;
 	float: left;
@@ -560,3 +561,18 @@ section.draggable { cursor:grabbing; cursor:-moz-grabbing; cursor:-webkit-grabbi
 
 /* Toggle button */
 a.toggle { width: 21px; height: 22px; background: url("../../img/toggle.png") no-repeat; float: right; cursor: pointer; margin: 7px 0 0 0; }
+
+table > thead > tr {
+	border-bottom: 2px solid #ddd;
+}
+table > tbody > tr {
+	border-bottom: 1px solid #ddd;
+}
+
+/* Streams Core Styles */
+
+.streams_param_input pre {
+	background: #E3ECEE;
+	color: #5D7F88;
+	font-size: 11px;
+}
