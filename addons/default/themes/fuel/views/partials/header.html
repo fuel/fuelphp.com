@@ -14,8 +14,9 @@
 <meta name="resource-type" content="document" />
 <meta name="language" content="en" />
 
-<link rel="alternate" type="application/rss+xml" title="Fuel Blog" href="http://fuelphp.com/blog/rss/all.rss" />
-<link rel="shortcut icon" href="{{ url:base }}addons/themes/fuel/img/favicon.png" type="image/x-icon" />
+<link rel="alternate" type="application/rss+xml" title="FuelPHP Blog" href="http://fuelphp.com/blog/rss/all.rss" />
+
+{{ theme:favicon file="favicon.png" }}
 
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" type="text/css" />
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold" type="text/css" />
@@ -29,7 +30,7 @@
 </head>
 
 <!-- Begin body -->
-<body id="top" class="{{ if url:current == url:base }}home{{ /if }}">
+<body id="top" class="{{ if url:current == url:base }}home{{ endif }}">
 
 {{ session:messages success="success-box" notice="notice-box" error="error-box" }}
 

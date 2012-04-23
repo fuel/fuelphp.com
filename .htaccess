@@ -16,9 +16,14 @@
 	# !important USE ONLY ONE OPTION
 
 	# Option 1: To rewrite "www.domain.com -> domain.com" uncomment the following lines.
-	#RewriteCond %{HTTPS} !=on
-	#RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-	#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+	RewriteCond %{HTTPS} !=on
+	RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+	RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+	# No HTTPS
+	RewriteCond %{HTTPS} =on
+	RewriteCond %{HTTP_HOST} ^(www\.)(.+)$ [NC]
+	RewriteRule ^(.*)$ http://%2/$1 [R=301,L]
 
 	# Option 2: To rewrite "domain.com -> www.domain.com" uncomment the following lines.
 	#RewriteCond %{HTTPS} !=on
